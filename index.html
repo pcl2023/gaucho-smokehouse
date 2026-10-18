@@ -124,7 +124,10 @@ h1 em{font-style:normal;color:var(--brass)}
 .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
 .menu-hint{display:none;margin-top:10px;font-size:var(--t-xs);color:var(--smoke);text-align:right}
 .dish{background:var(--soot);border:1px solid var(--line-soft);display:flex;flex-direction:column}
-.dish img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.dish .ph{overflow:hidden}
+.dish img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .6s ease}
+.dish:hover img{transform:scale(1.045)}
+.dish-body{flex:1}
 .dish-body{padding:14px 16px 16px}
 .dish-tag{font-family:'Playfair Display',serif;font-style:italic;color:var(--smoke);font-size:var(--t-xs);margin-bottom:2px}
 .dish h3{color:var(--brass);margin-bottom:6px}
@@ -135,12 +138,16 @@ h1 em{font-style:normal;color:var(--brass)}
 
 /* craft */
 .craft{background:var(--soot);border-top:1px solid var(--line)}
-.craft-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
-.craft-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.craft-photos img{width:100%;aspect-ratio:3/4;object-fit:cover}
-.craft dl{margin-top:18px}
-.craft dt{color:var(--pale);font-weight:600;font-size:var(--t-sm)}
-.craft dd{color:var(--smoke);font-size:var(--t-sm);margin-bottom:10px}
+.craft-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:26px}
+.craft-head .rule{margin-bottom:0}
+.craft-head p{max-width:34em}
+.craft-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.craft-photos .ph{overflow:hidden;border:1px solid var(--line-soft)}
+.craft-photos img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s ease}
+.craft-photos figure:hover img{transform:scale(1.04)}
+.craft-photos figcaption{margin-top:12px}
+.craft-photos figcaption strong{display:block;color:var(--pale);font-weight:600;font-size:var(--t-md)}
+.craft-photos figcaption span{display:block;color:var(--smoke);font-size:var(--t-sm)}
 
 
 /* reviews on butcher paper */
@@ -152,13 +159,21 @@ h1 em{font-style:normal;color:var(--brass)}
 .quotes blockquote{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:1.15rem;line-height:1.4;color:var(--ink)}
 .quotes figcaption{margin-top:12px;font-size:var(--t-sm);color:var(--ink-soft)}
 .quotes figcaption strong{color:var(--ink);font-weight:600}
-.stars{color:#8a5a1c;letter-spacing:.12em;font-size:.85rem;margin-bottom:8px}
+.quotes .src{font-size:var(--t-xs);color:var(--ink-soft);margin-bottom:10px;letter-spacing:.02em}
+.quotes .src b{color:#8a5a1c;letter-spacing:.1em;font-weight:400;margin-right:6px}
+.quotes figure{display:flex;flex-direction:column}
+.quotes figcaption{margin-top:auto;padding-top:12px}
 @media(max-width:760px){.quotes{grid-template-columns:1fr;gap:22px}}
 
-/* story */
-.souths{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.souths img{width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line-soft)}
+/* story + pitmaster */
+.souths{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+#story{background:#0d0a05;border-top:1px solid var(--line)}
+.pit-photo{position:relative}
+.pit-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;-webkit-mask-image:linear-gradient(90deg,#000 62%,transparent 100%),linear-gradient(0deg,transparent 0,#000 10%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,#000 62%,transparent 100%),linear-gradient(0deg,transparent 0,#000 10%);mask-composite:intersect}
+.pit-photo figcaption{margin-top:10px;font-family:'Playfair Display',serif;font-style:italic;color:var(--smoke);font-size:var(--t-sm)}
 .souths p{margin-bottom:10px;max-width:34em}
+.pit{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.pit h3{color:var(--brass);font-size:var(--t-lg);margin-bottom:8px}
 
 /* catering */
 .catering{position:relative;padding:0;overflow:hidden;border-top:1px solid var(--line)}
@@ -175,14 +190,19 @@ h1 em{font-style:normal;color:var(--brass)}
 .nashville p{max-width:34em;margin:0 auto 6px;color:var(--smoke)}
 
 /* footer */
-footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
-.foot-grid{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:28px;align-items:start}
 .foot-brand{display:flex;align-items:center;gap:16px}
 .foot-brand img{width:84px}
 .foot-brand p{font-size:var(--t-sm);color:var(--smoke)}
 .foot-brand strong{color:var(--pale);font-weight:600;display:block}
-.foot-links{display:flex;gap:18px;font-size:var(--t-sm)}
+.foot-col h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:var(--t-sm);color:var(--smoke);margin-bottom:8px}
+.foot-col a{display:block;font-size:var(--t-sm);margin-bottom:4px}
+.foot-col p{font-size:var(--t-sm);color:var(--smoke)}
 .fineprint{margin-top:18px;text-align:center;color:#6d6252;font-size:var(--t-xs)}
+
+/* mobile action bar */
+.mbar{display:none}
 
 /* responsive */
 @media(max-width:900px){
@@ -199,8 +219,16 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
   .hero-img{order:-1}
   .hero-img::after{background:linear-gradient(0deg,#0d0a05 0%,rgba(13,10,5,0) 18%)}
   .hero-copy{max-width:none;padding:4px 20px 32px}
-  .craft-grid,.souths{grid-template-columns:1fr;gap:24px}
+  .craft-head,.souths{grid-template-columns:1fr;gap:16px}
+  .souths{gap:24px}
+  .pit-photo{max-width:420px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1/-1}
   :root{--sec:44px}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(13,10,5,.96);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s ease}
+  .mbar.show{transform:none}
+  .mbar .btn{flex:1;text-align:center;padding:11px 10px}
+  body{padding-bottom:72px}
 }
 @media(max-width:640px){
   .nav-inner{padding:10px 16px}
@@ -215,8 +243,9 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
   .menu-grid::-webkit-scrollbar{display:none}
   .dish{scroll-snap-align:start}
   .menu-hint{display:block}
-  .foot-grid{flex-direction:column;text-align:center}
-  .foot-brand{flex-direction:column}
+  .craft-photos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 8px;scrollbar-width:none}
+  .craft-photos::-webkit-scrollbar{display:none}
+  .craft-photos figure{scroll-snap-align:start}
 }
 </style>
 </head>
@@ -264,7 +293,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
     </div>
     <div class="menu-grid">
       <article class="dish">
-        <img src="assets/menu-picanha.jpg" alt="Smoked picanha with chimichurri on ciabatta" loading="lazy">
+        <div class="ph"><img src="assets/menu-picanha.jpg" alt="Smoked picanha with chimichurri on ciabatta" loading="lazy"></div>
         <div class="dish-body">
           <p class="dish-tag">House favorite</p>
           <h3>Smoked Picanha</h3>
@@ -272,7 +301,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <img src="assets/menu-brisket.jpg" alt="Fifteen-hour smoked brisket on a pretzel bun" loading="lazy" style="object-position:50% 38%">
+        <div class="ph"><img src="assets/menu-brisket.jpg" alt="Fifteen-hour smoked brisket on a pretzel bun" loading="lazy" style="object-position:50% 38%"></div>
         <div class="dish-body">
           <p class="dish-tag">Pitmaster cut</p>
           <h3>Smoked Brisket</h3>
@@ -280,7 +309,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <img src="assets/menu-pastrami.jpg" alt="Smoked pastrami with melted cheese and arugula on a pretzel bun" loading="lazy" style="object-position:50% 35%">
+        <div class="ph"><img src="assets/menu-pastrami.jpg" alt="Smoked pastrami with melted cheese and arugula on a pretzel bun" loading="lazy" style="object-position:50% 35%"></div>
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_pastrami">Slow-smoked 10 hours</p>
           <h3>Smoked Pastrami</h3>
@@ -288,7 +317,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <img src="assets/menu-pulledpork.jpg" alt="Smoked pulled pork with barbecue sauce and coleslaw on a pretzel bun" loading="lazy">
+        <div class="ph"><img src="assets/menu-pulledpork.jpg" alt="Smoked pulled pork with barbecue sauce and coleslaw on a pretzel bun" loading="lazy"></div>
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_pulled">Customer favorite</p>
           <h3>Smoked Pulled Pork</h3>
@@ -296,7 +325,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <img src="assets/menu-pretzelpork.jpg" alt="Signature pork pretzel sandwich with roasted red peppers" loading="lazy" style="object-position:50% 45%">
+        <div class="ph"><img src="assets/menu-pretzelpork.jpg" alt="Signature pork pretzel sandwich with roasted red peppers" loading="lazy" style="object-position:50% 45%"></div>
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_pretzel">Chef's selection</p>
           <h3>Signature Pork Pretzel</h3>
@@ -304,7 +333,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <img src="assets/menu-plate.jpg" alt="Your Way Plate: smoked picanha sliced on the board with chimichurri, fries and greens" loading="lazy">
+        <div class="ph"><img src="assets/menu-plate.jpg" alt="Your Way Plate: smoked picanha sliced on the board with chimichurri, fries and greens" loading="lazy"></div>
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_more">Beyond the bun</p>
           <h3 data-i18n="more_h3">Cones and plates</h3>
@@ -321,21 +350,27 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
 </section>
 
 <section class="craft" id="craft">
-  <div class="wrap craft-grid">
-    <div>
-      <h2 data-i18n="craft_h2">Real wood. Whole cuts. No shortcuts.</h2>
-      <div class="rule"></div>
+  <div class="wrap">
+    <div class="craft-head">
+      <div>
+        <h2 data-i18n="craft_h2">Real wood. Whole cuts. No shortcuts.</h2>
+        <div class="rule"></div>
+      </div>
       <p class="muted" data-i18n="craft_p">Every cut is trimmed and seasoned by hand, then smoked for hours: ten for the pastrami, fifteen for the brisket. Nothing leaves the pit before it is ready.</p>
-      <dl>
-        <dt data-i18n="f1t">House rubs</dt><dd data-i18n="f1d">Whole spices, ground in small batches for each cut.</dd>
-        <dt data-i18n="f2t">Seasoned by hand</dt><dd data-i18n="f2d">Every piece goes through our pitmaster's hands.</dd>
-        <dt data-i18n="f3t">Up to 15 hours of smoke</dt><dd data-i18n="f3d">Low and slow, until the bark says it is done.</dd>
-      </dl>
     </div>
     <div class="craft-photos">
-      <img src="assets/craft-rub.jpg" alt="House rub of whole spices" loading="lazy">
-      <img src="assets/craft-season.jpg" alt="Pitmaster seasoning a whole cut by hand" loading="lazy">
-      <img src="assets/craft-smoke.jpg" alt="Brisket bark on the grate under wood smoke" loading="lazy">
+      <figure>
+        <div class="ph"><img src="assets/craft-rub.jpg" alt="House rub of whole spices" loading="lazy"></div>
+        <figcaption><strong data-i18n="f1t">House rubs</strong><span data-i18n="f1d">Whole spices, ground in small batches for each cut.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img src="assets/craft-season.jpg" alt="Pitmaster seasoning a whole cut by hand" loading="lazy" style="object-position:50% 30%"></div>
+        <figcaption><strong data-i18n="f2t">Seasoned by hand</strong><span data-i18n="f2d">Every piece goes through our pitmaster's hands.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img src="assets/craft-smoke.jpg" alt="Brisket bark on the grate under wood smoke" loading="lazy"></div>
+        <figcaption><strong data-i18n="f3t">Up to 15 hours of smoke</strong><span data-i18n="f3d">Low and slow, until the bark says it is done.</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -346,17 +381,19 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
     <div class="rule"></div>
     <div class="quotes">
       <figure>
-        <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+        <p class="src"><b aria-label="5 out of 5 stars">★★★★★</b><span data-i18n="rev_src1">Google review</span></p>
         <blockquote>“It’s really tasty, big portions for this price, fresh meat and french fries without oil taste.”</blockquote>
-        <figcaption><strong>Tetiana G.</strong> <span data-i18n="rev_src1">Google review</span></figcaption>
+        <figcaption><strong>Tetiana G.</strong></figcaption>
       </figure>
       <figure>
+        <p class="src" data-i18n="rev_src2">Instagram, on our catering</p>
         <blockquote>“Everything was absolutely delicious! 100% recommended!”</blockquote>
-        <figcaption><strong>@mativalero</strong> <span data-i18n="rev_src2">on our catering, via Instagram</span></figcaption>
+        <figcaption><strong>@mativalero</strong></figcaption>
       </figure>
       <figure>
+        <p class="src" data-i18n="rev_src3">Instagram, in Spanish</p>
         <blockquote>“Gracias por un sándwich realmente delicioso!”</blockquote>
-        <figcaption><strong>@cartagena_stay_hub</strong> <span data-i18n="rev_src3">via Instagram</span></figcaption>
+        <figcaption><strong>@cartagena_stay_hub</strong></figcaption>
       </figure>
     </div>
   </div>
@@ -364,12 +401,20 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
 
 <section id="story">
   <div class="wrap souths">
-    <img src="assets/horsemen.jpg" alt="Gauchos on horseback at sunset" loading="lazy">
+    <figure class="pit-photo">
+      <img src="assets/pitmaster.jpg" alt="Adrián Yánez, chef and pitmaster of GAUCHO Smokehouse" loading="lazy">
+      <figcaption data-i18n="pit_cap">Adrián Yánez, chef and pitmaster</figcaption>
+    </figure>
     <div>
       <h2 data-i18n="story_h2">Two souths. One fire.</h2>
       <div class="rule"></div>
       <p data-i18n="story_p1">The American South taught the world patience: whole cuts, hours of smoke, nothing rushed. Down in South America, the gaucho made open-fire cooking a way of life.</p>
       <p data-i18n="story_p2">GAUCHO Smokehouse puts both on one cutting board. Brisket, pulled pork and the pit come from one south. Picanha, chimichurri and our gaucho sauce come from the other.</p>
+      <div class="pit">
+        <h3 data-i18n="pit_h3">Meet the pitmaster</h3>
+        <p data-i18n="pit_p1">Adrián Yánez is the chef who created GAUCHO. Every rub, every sauce and every cut on the menu starts with him.</p>
+        <p data-i18n="pit_p2">He built the brand at markets and private events, one tray at a time, before bringing it to Nashville.</p>
+      </div>
       <p class="muted" data-i18n="story_p3">Different lands. Same fire.</p>
     </div>
   </div>
@@ -399,6 +444,11 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
   </div>
 </section>
 
+<div class="mbar" aria-label="Quick actions">
+  <a class="btn" href="#menu" data-i18n="nav_menu">Menu</a>
+  <a class="btn solid" href="#catering" data-i18n="cta_event">Plan your event</a>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -406,10 +456,19 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
         <img src="assets/emblem.jpg" alt="GAUCHO Smokehouse emblem">
         <p><strong>GAUCHO Smokehouse</strong><span data-i18n="foot_tag">Southern fusion barbecue. Nashville, Tennessee.</span></p>
       </div>
-      <div class="foot-links">
+      <div class="foot-col">
+        <h3 data-i18n="foot_explore">Explore</h3>
         <a href="#menu" data-i18n="nav_menu">Menu</a>
+        <a href="#story" data-i18n="nav_story">Our story</a>
         <a href="#catering">Catering</a>
-        <a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Instagram</a>
+      </div>
+      <div class="foot-col">
+        <h3 data-i18n="foot_follow">Follow</h3>
+        <a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">@gauchosmokehouse</a>
+      </div>
+      <div class="foot-col">
+        <h3 data-i18n="foot_contact">Catering and events</h3>
+        <p data-i18n="foot_contact_p">Send us a message on Instagram with your date and headcount.</p>
       </div>
     </div>
     <p class="fineprint" data-i18n="fine">© 2026 GAUCHO Smokehouse. All rights reserved.</p>
@@ -458,9 +517,17 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
     nash_p2:'<a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Sigue a @gauchosmokehouse</a> para fechas y ubicaciones.',
     swipe:'Desliza para ver los seis',
     rev_h2:'Lo que dicen nuestros clientes',
-    rev_src1:'reseña en Google',
-    rev_src2:'sobre nuestro catering, en Instagram',
-    rev_src3:'en Instagram',
+    rev_src1:'Reseña en Google',
+    rev_src2:'Instagram, sobre nuestro catering',
+    rev_src3:'Instagram, en español',
+    pit_cap:'Adrián Yánez, chef y pitmaster',
+    pit_h3:'Conoce al pitmaster',
+    pit_p1:'Adrián Yánez es el chef que creó GAUCHO. Cada rub, cada salsa y cada corte del menú empiezan con él.',
+    pit_p2:'Construyó la marca en mercados y eventos privados, bandeja por bandeja, antes de traerla a Nashville.',
+    foot_explore:'Explora',
+    foot_follow:'Síguenos',
+    foot_contact:'Catering y eventos',
+    foot_contact_p:'Escríbenos por Instagram con la fecha y el número de invitados.',
     foot_tag:'Barbacoa de fusión sureña. Nashville, Tennessee.',
     fine:'© 2026 GAUCHO Smokehouse. Todos los derechos reservados.'
   };
@@ -492,5 +559,21 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
 })();
 </script>
 
+<script>
+(function(){
+  var bar=document.querySelector('.mbar'), hero=document.querySelector('.hero'), cat=document.getElementById('catering');
+  if(!bar||!hero||!cat) return;
+  var ticking=false;
+  function upd(){
+    ticking=false;
+    var pastHero = hero.getBoundingClientRect().bottom < 60;
+    var r = cat.getBoundingClientRect(), vh = window.innerHeight;
+    var catIn = r.top < vh*0.85 && r.bottom > vh*0.15;
+    bar.classList.toggle('show', pastHero && !catIn);
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(upd); } }, {passive:true});
+  window.addEventListener('resize', upd); upd();
+})();
+</script>
 </body>
 </html>
