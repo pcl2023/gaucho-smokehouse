@@ -14,11 +14,14 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<script>document.documentElement.className+=" js"</script>
 <link rel="preload" as="image" href="assets/hero-brisket-real-743.webp" imagesrcset="assets/hero-brisket-real-480.webp 480w, assets/hero-brisket-real-743.webp 743w" imagesizes="(max-width:700px) 100vw, 58vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/playfair-display-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FoodEstablishment","name":"GAUCHO Smokehouse","url":"https://pcl2023.github.io/gaucho-smokehouse/","image":"https://pcl2023.github.io/gaucho-smokehouse/assets/og-v2.jpg","servesCuisine":["Barbecue","Southern fusion","Smoked sandwiches"],"areaServed":{"@type":"City","name":"Nashville, Tennessee"},"slogan":"The Ultimate Smoked Experience","sameAs":["https://www.instagram.com/gauchosmokehouse"]}
+{"@context":"https://schema.org","@type":"FoodEstablishment","name":"GAUCHO Smokehouse","url":"https://pcl2023.github.io/gaucho-smokehouse/","image":"https://pcl2023.github.io/gaucho-smokehouse/assets/og-v2.jpg","email":"smokehousegaucho@gmail.com","servesCuisine":["Barbecue","Southern fusion","Smoked sandwiches"],"areaServed":{"@type":"City","name":"Nashville, Tennessee"},"slogan":"The Ultimate Smoked Experience","sameAs":["https://www.instagram.com/gauchosmokehouse"]}
 </script>
 <style>
 @font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/playfair-display-latin-600-normal.woff2) format('woff2')}
@@ -208,6 +211,46 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
 .fineprint{margin-top:18px;text-align:center;color:#8f826c;font-size:var(--t-xs)}
 
 /* mobile action bar */
+
+/* catering form */
+.catering .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:48px;align-items:start}
+.catering::before{background:linear-gradient(90deg,rgba(13,10,5,.95) 0%,rgba(13,10,5,.86) 55%,rgba(13,10,5,.7) 100%)}
+.cat-note{font-size:var(--t-sm);color:var(--smoke);margin-top:14px}
+.cat-note a{text-decoration:underline;text-underline-offset:3px}
+.qform{background:rgba(13,10,5,.82);border:1px solid var(--line);padding:26px 24px 22px;backdrop-filter:blur(6px)}
+.qform h3{font-family:'Playfair Display',serif;font-weight:600;font-size:1.2rem;color:var(--pale);margin-bottom:4px}
+.qform .sub{font-size:var(--t-xs);color:var(--smoke);margin-bottom:16px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.fgrid .full{grid-column:1/-1}
+.fld label{display:block;font-size:var(--t-xs);font-weight:600;letter-spacing:.04em;color:var(--pale);margin-bottom:5px}
+.fld label .opt{font-weight:400;color:var(--smoke)}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:.95rem;color:var(--pale);background:#0d0a05;border:1px solid rgba(200,150,62,.35);border-radius:0;padding:9px 11px;outline:none;transition:border-color .2s;color-scheme:dark}
+.fld textarea{min-height:84px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--brass);box-shadow:0 0 0 1px var(--brass)}
+.fld input:user-invalid,.fld select:user-invalid{border-color:#d9785a}
+#quote{scroll-margin-top:84px}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.qform button.btn{cursor:pointer;width:100%;margin-top:16px;padding:12px 22px}
+.qform button[disabled]{opacity:.6;cursor:progress}
+.fmsg{font-size:var(--t-sm);margin-top:12px;min-height:1.2em}
+.fmsg.ok{color:#cfe3b0}.fmsg.err{color:#f0b49c}
+.fmsg a{text-decoration:underline}
+.legal{font-size:.75rem;color:#8f826c;margin-top:10px;line-height:1.45}
+/* waitlist */
+.wl{display:flex;max-width:440px;margin:0 auto 14px;border:1px solid var(--brass)}
+.wl input{flex:1;min-width:0;font:inherit;font-size:.95rem;color:var(--pale);background:#0d0a05;border:0;padding:11px 14px;outline:none;color-scheme:dark}
+.wl input:focus{box-shadow:inset 0 0 0 1px var(--brass)}
+.wl button{cursor:pointer;border:0}
+.nashville .fmsg{text-align:center}
+.nashville .ig{font-size:var(--t-sm)}
+.nashville .ig a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.catering .wrap{grid-template-columns:1fr;gap:28px}.catering .copy{max-width:none}}
+@media(max-width:480px){.fgrid{grid-template-columns:1fr}.qform{padding:22px 16px 18px}}
+/* reveal on scroll */
+@media (prefers-reduced-motion: no-preference){
+  .js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.in{opacity:1;transform:none}
+}
 .mbar{display:none}
 
 /* responsive */
@@ -365,15 +408,15 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     </div>
     <div class="craft-photos">
       <figure>
-        <div class="ph"><img width="900" height="1200" src="assets/craft-rub-900.webp" srcset="assets/craft-rub-480.webp 480w, assets/craft-rub-900.webp 900w" sizes="(max-width:560px) 78vw, (max-width:900px) 33vw, 340px" alt="House rub of whole spices" loading="lazy"></div>
+        <div class="ph"><img width="900" height="1200" src="assets/craft-rub-900.webp" srcset="assets/craft-rub-480.webp 480w, assets/craft-rub-640.webp 640w, assets/craft-rub-900.webp 900w" sizes="(max-width:560px) 78vw, (max-width:900px) 33vw, 340px" alt="House rub of whole spices" loading="lazy"></div>
         <figcaption><strong data-i18n="f1t">House rubs</strong><span data-i18n="f1d">Whole spices, ground in small batches for each cut.</span></figcaption>
       </figure>
       <figure>
-        <div class="ph"><img width="826" height="1280" src="assets/craft-season-826.webp" srcset="assets/craft-season-480.webp 480w, assets/craft-season-826.webp 826w" sizes="(max-width:560px) 78vw, (max-width:900px) 33vw, 340px" alt="Pitmaster seasoning a whole cut by hand" loading="lazy" style="object-position:50% 30%"></div>
+        <div class="ph"><img width="826" height="1280" src="assets/craft-season-826.webp" srcset="assets/craft-season-480.webp 480w, assets/craft-season-640.webp 640w, assets/craft-season-826.webp 826w" sizes="(max-width:560px) 78vw, (max-width:900px) 33vw, 340px" alt="Pitmaster seasoning a whole cut by hand" loading="lazy" style="object-position:50% 30%"></div>
         <figcaption><strong data-i18n="f2t">Seasoned by hand</strong><span data-i18n="f2d">Every piece goes through our pitmaster's hands.</span></figcaption>
       </figure>
       <figure>
-        <div class="ph"><img width="900" height="1083" src="assets/craft-smoke-900.webp" srcset="assets/craft-smoke-480.webp 480w, assets/craft-smoke-900.webp 900w" sizes="(max-width:560px) 78vw, (max-width:900px) 33vw, 340px" alt="Brisket bark on the grate under wood smoke" loading="lazy"></div>
+        <div class="ph"><img width="900" height="1083" src="assets/craft-smoke-900.webp" srcset="assets/craft-smoke-480.webp 480w, assets/craft-smoke-640.webp 640w, assets/craft-smoke-900.webp 900w" sizes="(max-width:560px) 78vw, (max-width:900px) 33vw, 340px" alt="Brisket bark on the grate under wood smoke" loading="lazy"></div>
         <figcaption><strong data-i18n="f3t">Up to 15 hours of smoke</strong><span data-i18n="f3d">Low and slow, until the bark says it is done.</span></figcaption>
       </figure>
     </div>
@@ -433,10 +476,42 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
       <div class="rule"></div>
       <p data-i18n="cat_p1">Markets, festivals and private events across Middle Tennessee. Weddings, corporate lunches, backyard feasts: we bring the pit, the pitmaster and the fire.</p>
       <p data-i18n="cat_p2">Send us the date, the headcount and the occasion. We build the menu around it.</p>
-      <div class="cta-row">
-        <a class="btn solid" href="https://www.instagram.com/gauchosmokehouse" rel="noopener" data-i18n="cat_btn">Message us on Instagram</a>
-      </div>
+      <p class="cat-note" data-i18n="cat_alt">Prefer to talk first? Write to <a href="mailto:smokehousegaucho@gmail.com">smokehousegaucho@gmail.com</a> or message us on <a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Instagram</a>.</p>
     </div>
+    <form class="qform" id="quote" novalidate>
+      <h3 data-i18n="q_h3">Request a catering quote</h3>
+      <p class="sub" data-i18n="q_sub">Tell us about your event. We reply with a menu and a quote.</p>
+      <div class="fgrid">
+        <div class="fld"><label for="q-name" data-i18n="q_name">Name</label><input id="q-name" name="name" autocomplete="name" required maxlength="80"></div>
+        <div class="fld"><label for="q-email" data-i18n="q_email">Email</label><input id="q-email" name="email" type="email" autocomplete="email" required maxlength="120"></div>
+        <div class="fld"><label for="q-phone"><span data-i18n="q_phone">Phone</span> <span class="opt" data-i18n="q_opt">(optional)</span></label><input id="q-phone" name="phone" type="tel" autocomplete="tel" maxlength="30"></div>
+        <div class="fld"><label for="q-date" data-i18n="q_date">Event date</label><input id="q-date" name="event_date" type="date" required></div>
+        <div class="fld"><label for="q-guests" data-i18n="q_guests">Guests</label>
+          <select id="q-guests" name="guests" required>
+            <option value="" data-i18n="q_pick">Select</option>
+            <option value="Under 25" data-i18n="g1">Under 25</option>
+            <option value="25-50">25 to 50</option>
+            <option value="50-100">50 to 100</option>
+            <option value="100-200">100 to 200</option>
+            <option value="200+" data-i18n="g5">More than 200</option>
+          </select></div>
+        <div class="fld"><label for="q-type" data-i18n="q_type">Occasion</label>
+          <select id="q-type" name="occasion" required>
+            <option value="" data-i18n="q_pick">Select</option>
+            <option value="Wedding" data-i18n="o1">Wedding</option>
+            <option value="Corporate" data-i18n="o2">Corporate event</option>
+            <option value="Private party" data-i18n="o3">Private party</option>
+            <option value="Festival or market" data-i18n="o4">Festival or market</option>
+            <option value="Other" data-i18n="o5">Other</option>
+          </select></div>
+        <div class="fld full"><label for="q-where" data-i18n="q_where">Event location (city)</label><input id="q-where" name="location" autocomplete="address-level2" required maxlength="80"></div>
+        <div class="fld full"><label for="q-msg"><span data-i18n="q_msg">Anything else we should know?</span> <span class="opt" data-i18n="q_opt">(optional)</span></label><textarea id="q-msg" name="message" maxlength="1500"></textarea></div>
+      </div>
+      <div class="hp" aria-hidden="true"><label for="q-hp">Leave empty</label><input id="q-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
+      <button class="btn solid" type="submit" data-i18n="q_btn">Request my quote</button>
+      <p class="fmsg" role="status" aria-live="polite"></p>
+      <p class="legal" data-i18n="q_legal">We use your details only to answer this request. We do not sell or share them.</p>
+    </form>
   </div>
 </section>
 
@@ -445,10 +520,15 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     <img class="emblem" src="assets/emblem-252.webp" width="132" height="108" alt="" loading="lazy">
     <h2 data-i18n="nash_h2">Next: a Nashville smokehouse of our own.</h2>
     <div class="rule"></div>
-    <p data-i18n="nash_p1">Our first dining room is in the works. Until the doors open, find us where the smoke is: markets, festivals and private events around the city.</p>
-    <div class="cta-row">
-      <a class="btn solid" href="https://www.instagram.com/gauchosmokehouse" rel="noopener" data-i18n="nash_btn">Follow us for dates and locations</a>
-    </div>
+    <p data-i18n="nash_p1">Our first dining room is in the works. Until the doors open, find us where the smoke is: markets, festivals and private events around the city. Leave your email and we will tell you where we are next.</p>
+    <form class="wl" id="waitlist" novalidate>
+      <label for="wl-email" class="hp" data-i18n="wl_label">Your email</label>
+      <input id="wl-email" name="email" type="email" autocomplete="email" required maxlength="120" placeholder="you@email.com">
+      <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn solid" type="submit" data-i18n="wl_btn">Notify me</button>
+    </form>
+    <p class="fmsg" role="status" aria-live="polite"></p>
+    <p class="ig" data-i18n="nash_ig">Dates and locations also on <a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Instagram</a>.</p>
   </div>
 </section>
 
@@ -476,7 +556,8 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
       </div>
       <div class="foot-col">
         <h3 data-i18n="foot_contact">Catering and events</h3>
-        <p data-i18n="foot_contact_p">Send us a message on Instagram with your date and headcount.</p>
+        <a href="#quote" data-i18n="foot_quote">Request a quote</a>
+        <a href="mailto:smokehousegaucho@gmail.com">smokehousegaucho@gmail.com</a>
       </div>
     </div>
     <p class="fineprint" data-i18n="fine">© 2026 GAUCHO Smokehouse. All rights reserved.</p>
@@ -519,10 +600,20 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     cat_h2:'El ahumadero va a donde estés.',
     cat_p1:'Mercados, festivales y eventos privados en todo el Middle Tennessee. Bodas, almuerzos corporativos, reuniones en casa: llevamos el ahumador, el pitmaster y el fuego.',
     cat_p2:'Envíanos la fecha, el número de invitados y la ocasión. Armamos el menú a la medida.',
-    cat_btn:'Escríbenos por Instagram',
+    cat_alt:'¿Prefieres hablar primero? Escríbenos a <a href="mailto:smokehousegaucho@gmail.com">smokehousegaucho@gmail.com</a> o por <a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Instagram</a>.',
+    q_h3:'Pide una cotización de catering',
+    q_sub:'Cuéntanos de tu evento. Te respondemos con un menú y una cotización.',
+    q_name:'Nombre', q_email:'Correo', q_phone:'Teléfono', q_opt:'(opcional)', q_date:'Fecha del evento',
+    q_guests:'Invitados', q_pick:'Elige', g1:'Menos de 25', g5:'Más de 200',
+    q_type:'Ocasión', o1:'Boda', o2:'Evento corporativo', o3:'Fiesta privada', o4:'Festival o mercado', o5:'Otra',
+    q_where:'Lugar del evento (ciudad)', q_msg:'¿Algo más que debamos saber?',
+    q_btn:'Pedir mi cotización',
+    q_legal:'Usamos tus datos solo para responder esta solicitud. No los vendemos ni los compartimos.',
+    wl_label:'Tu correo', wl_btn:'Avísame',
+    nash_ig:'Fechas y lugares también en <a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Instagram</a>.',
+    foot_quote:'Pide una cotización',
     nash_h2:'Lo que viene: un ahumadero propio en Nashville.',
-    nash_p1:'Nuestro primer local está en camino. Mientras abrimos, encuéntranos donde está el humo: mercados, festivales y eventos privados por toda la ciudad.',
-    nash_btn:'Síguenos para ver fechas y ubicaciones',
+    nash_p1:'Nuestro primer local está en camino. Mientras abrimos, encuéntranos donde está el humo: mercados, festivales y eventos privados por toda la ciudad. Déjanos tu correo y te avisamos dónde estaremos.',
     swipe:'Desliza para ver los seis',
     rev_h2:'Lo que dicen nuestros clientes',
     rev_src1:'Reseña en Google',
@@ -535,7 +626,6 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     foot_explore:'Explora',
     foot_follow:'Síguenos',
     foot_contact:'Catering y eventos',
-    foot_contact_p:'Escríbenos por Instagram con la fecha y el número de invitados.',
     foot_tag:'Barbacoa de fusión sureña. Nashville, Tennessee.',
     fine:'© 2026 GAUCHO Smokehouse. Todos los derechos reservados.'
   };
@@ -552,7 +642,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
       n.innerHTML = (lang === 'es' && ES[k]) ? ES[k] : EN[i];
     });
     plainTags.forEach(function(n,i){ n.textContent = (lang === 'es' && TAGS_ES[plainEN[i]]) ? TAGS_ES[plainEN[i]] : plainEN[i]; });
-    document.documentElement.lang = lang;
+    document.documentElement.lang = lang; window.gauchoLang = lang;
     btns.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
     try { localStorage.setItem('gaucho-lang', lang); } catch(e) {}
   }
@@ -604,6 +694,50 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
   var ticking=false;
   function par(){ ticking=false; var y=window.scrollY, h=hero.offsetHeight; if(y>h) return; img.style.translate='0 '+(y*0.22).toFixed(1)+'px'; }
   window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(par);} },{passive:true});
+})();
+</script>
+<script>
+(function(){
+  var TO='https://formsubmit.co/ajax/smokehousegaucho@gmail.com';
+  var T={en:{sending:'Sending...',ok:'Thank you. Your request is in. We will reply to your email soon.',wl_ok:'You are on the list. We will email you our next dates.',bad:'Please complete the highlighted fields.',fail:'We could not send it from here. Please <a href="MAILTO">email us directly</a>, it takes one click.'},
+         es:{sending:'Enviando...',ok:'Gracias. Recibimos tu solicitud y te responderemos pronto por correo.',wl_ok:'Ya estás en la lista. Te escribiremos con nuestras próximas fechas.',bad:'Completa los campos marcados, por favor.',fail:'No pudimos enviarlo desde aquí. <a href="MAILTO">Escríbenos directamente</a>, es un clic.'}};
+  function L(){return T[window.gauchoLang==='es'?'es':'en'];}
+  function mailto(subj,data){var b=Object.keys(data).filter(function(k){return k.charAt(0)!=='_'&&data[k];}).map(function(k){return k+': '+data[k];}).join('\n');return 'mailto:smokehousegaucho@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(b);}
+  function wire(form,subj,okKey){
+    if(!form) return; var msg=form.nextElementSibling&&form.nextElementSibling.classList.contains('fmsg')?form.nextElementSibling:form.querySelector('.fmsg');
+    var btn=form.querySelector('button[type=submit]');
+    form.addEventListener('submit',function(e){
+      e.preventDefault(); msg.className='fmsg';
+      if(!form.checkValidity()){ msg.textContent=L().bad; msg.classList.add('err'); var f=form.querySelector(':invalid'); if(f) f.focus(); return; }
+      var data={}; new FormData(form).forEach(function(v,k){data[k]=String(v).trim();});
+      if(data._honey) return;
+      data._subject=subj+(data.name?': '+data.name:''); data._template='table'; data._captcha='false'; data.language=window.gauchoLang||'en';
+      if(data.email) data._replyto=data.email;
+      btn.disabled=true; msg.textContent=L().sending;
+      fetch(TO,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+        .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {ok:r.ok,j:j};});})
+        .then(function(x){ if(x.ok && String(x.j.success)==='true'){ msg.textContent=L()[okKey]; msg.classList.add('ok'); form.reset(); } else throw 0; })
+        .catch(function(){ msg.innerHTML=L().fail.replace('MAILTO',mailto(subj,data)); msg.classList.add('err'); })
+        .then(function(){ btn.disabled=false; });
+    });
+  }
+  var d=document.getElementById('q-date'); if(d){ var t=new Date(); t.setMinutes(t.getMinutes()-t.getTimezoneOffset()); d.min=t.toISOString().slice(0,10); }
+  wire(document.getElementById('quote'),'Catering request','ok');
+  wire(document.getElementById('waitlist'),'Nashville waitlist','wl_ok');
+})();
+</script>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sel='.menu-head,.dish,.craft-head,.craft-photos figure,.kraft h2,.quotes > *,.souths > *,.catering .copy,.qform,.nashville .wrap > *';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ [].slice.call(e.target.parentElement.children).forEach(function(c){ if(c.classList.contains('rv')){ c.classList.add('in'); io.unobserve(c);} }); } }); },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(el){
+    var sib=el.parentElement?[].slice.call(el.parentElement.children).filter(function(c){return c.matches(sel);}):[];
+    var i=sib.indexOf(el); if(i>0) el.style.transitionDelay=Math.min(i,5)*70+'ms';
+    el.classList.add('rv'); io.observe(el);
+  });
 })();
 </script>
 </body>
