@@ -112,15 +112,12 @@ h1 em{font-style:normal;color:var(--brass)}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes settle{from{transform:scale(1.04)}to{transform:none}}
 @keyframes drift{from{transform:scale(1)}to{transform:scale(1.04)}}
-@keyframes smokeup{from{transform:translateY(12%) scale(1)}to{transform:translateY(-10%) scale(1.15)}}
 @media (prefers-reduced-motion: no-preference){
   .hero-img img{animation:settle 1.4s ease-out both, drift 24s ease-in-out 1.4s infinite alternate}
-  .hero-img .smoke-tex{animation:smokeup 18s ease-in-out infinite alternate}
 }
 .hero-img::after{z-index:1}
 .hero-img{position:absolute;top:0;right:0;bottom:0;width:58%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%);mask-image:linear-gradient(90deg,transparent 0,#000 24%)}
 .hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform-origin:50% 62%}
-.hero-img .smoke-tex{inset:auto;width:90%;height:auto;right:-12%;top:-30%;left:auto;object-fit:contain;mix-blend-mode:screen;opacity:.16}
 .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,10,5,.35) 0%,rgba(13,10,5,0) 30%)}
 
 /* menu */
@@ -286,7 +283,6 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     </div>
     <div class="hero-img">
       <img width="743" height="1280" src="assets/hero-brisket-real-743.webp" srcset="assets/hero-brisket-real-480.webp 480w, assets/hero-brisket-real-743.webp 743w" sizes="(max-width:700px) 100vw, 58vw" alt="Our pitmaster holding a whole smoked brisket fresh off the pit" fetchpriority="high">
-      <img width="1400" height="1067" class="smoke-tex" fetchpriority="low" src="assets/smoke-real-1400.webp" srcset="assets/smoke-real-480.webp 480w, assets/smoke-real-960.webp 960w, assets/smoke-real-1400.webp 1400w" sizes="60vw" alt="" aria-hidden="true">
     </div>
   </div>
 </header>
