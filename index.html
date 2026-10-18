@@ -90,9 +90,9 @@ nav{position:sticky;top:0;z-index:50;background:rgba(20,15,8,.94);backdrop-filte
 .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
 /* hero */
-.hero{background:#0d0a05;border-bottom:1px solid var(--line)}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;max-width:1080px;margin:0 auto;min-height:500px}
-.hero-copy{align-self:center;padding:48px 36px 48px 20px}
+.hero{position:relative;background:#0d0a05;border-bottom:1px solid var(--line);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr;align-items:center;max-width:1080px;margin:0 auto;min-height:520px}
+.hero-copy{position:relative;z-index:2;max-width:520px;padding:48px 20px}
 .tag{font-family:'Playfair Display',serif;font-style:italic;color:var(--brass);font-size:1.05rem;margin-bottom:12px}
 h1{font-size:var(--t-h1);line-height:1.12;margin-bottom:16px;letter-spacing:-.005em}
 h1 em{font-style:normal;color:var(--brass)}
@@ -105,15 +105,17 @@ h1 em{font-style:normal;color:var(--brass)}
 }
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes settle{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
-@keyframes drift{from{transform:scale(1)}to{transform:scale(1.035)}}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.04)}}
+@keyframes smokeup{from{transform:translateY(12%) scale(1)}to{transform:translateY(-10%) scale(1.15)}}
 @media (prefers-reduced-motion: no-preference){
-  .hero-img img{animation:settle 1.4s ease-out both, drift 22s ease-in-out 1.4s infinite alternate}
+  .hero-img img{animation:settle 1.4s ease-out both, drift 24s ease-in-out 1.4s infinite alternate}
+  .hero-img .smoke-tex{animation:smokeup 18s ease-in-out infinite alternate}
 }
-.smoke{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;mix-blend-mode:screen}
 .hero-img::after{z-index:1}
-.hero-img{background:#0d0a05}
-.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:50% 75%}
-.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0d0a05 0%,rgba(13,10,5,0) 22%)}
+.hero-img{position:absolute;top:0;right:0;bottom:0;width:58%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%);mask-image:linear-gradient(90deg,transparent 0,#000 24%)}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 55%;transform-origin:30% 60%}
+.hero-img .smoke-tex{inset:auto;width:90%;height:auto;right:-12%;top:-30%;left:auto;object-fit:contain;mix-blend-mode:screen;opacity:.16}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,10,5,.35) 0%,rgba(13,10,5,0) 30%)}
 
 /* menu */
 .menu-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
@@ -186,15 +188,17 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
 @media(max-width:900px){
   .nav-links .hide-m{display:none}
   .menu-grid{grid-template-columns:1fr 1fr}
-  .hero-grid{min-height:440px}
-  .hero-copy{padding:36px 24px 36px 20px}
+  .hero-grid{min-height:460px}
+  .hero-img{width:62%}
+  .hero-copy{max-width:440px;padding:36px 20px}
 }
 @media(max-width:700px){
-  .hero-grid{grid-template-columns:1fr;min-height:0}
-  .hero-img{order:-1;height:380px}
-  .hero-img img{object-position:50% 100%}
+  .hero-grid{min-height:0;width:100%}
+  .hero-img{position:relative;width:100%;height:300px;-webkit-mask-image:linear-gradient(0deg,transparent 0,#000 30%);mask-image:linear-gradient(0deg,transparent 0,#000 30%)}
+  .hero-img img{object-position:30% 55%}
+  .hero-img{order:-1}
   .hero-img::after{background:linear-gradient(0deg,#0d0a05 0%,rgba(13,10,5,0) 18%)}
-  .hero-copy{padding:8px 20px 32px}
+  .hero-copy{max-width:none;padding:4px 20px 32px}
   .craft-grid,.souths{grid-template-columns:1fr;gap:24px}
   :root{--sec:44px}
 }
@@ -243,8 +247,8 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
       </div>
     </div>
     <div class="hero-img">
-      <img src="assets/hero-stage.jpg" alt="Smoked picanha sandwich with chimichurri on artisan ciabatta, steaming under a warm ember glow" fetchpriority="high">
-      <canvas class="smoke" aria-hidden="true"></canvas>
+      <img src="assets/hero-pit.jpg" alt="Brisket bark on the grate under real wood smoke" fetchpriority="high">
+      <img class="smoke-tex" src="assets/smoke-real.jpg" alt="" aria-hidden="true">
     </div>
   </div>
 </header>
@@ -488,76 +492,5 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
 })();
 </script>
 
-<script>
-(function(){
-  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var c = document.querySelector('.smoke'); if (!c) return;
-  var gl = c.getContext('webgl', {alpha:false, antialias:false, premultipliedAlpha:false});
-  if (!gl) { c.style.display = 'none'; return; }
-  var vs = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
-  var fs = [
-  'precision mediump float;uniform vec2 R;uniform float T;uniform vec3 P;',
-  'float h1(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
-  'vec2 h2(vec2 p){return fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453);}',
-  'float n(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);',
-  ' return mix(mix(h1(i),h1(i+vec2(1,0)),u.x),mix(h1(i+vec2(0,1)),h1(i+vec2(1,1)),u.x),u.y);}',
-  'float fbm(vec2 p){float v=0.,a=.5;mat2 m=mat2(1.6,1.2,-1.2,1.6);for(int i=0;i<5;i++){v+=a*n(p);p=m*p;a*=.5;}return v;}',
-  'void main(){',
-  ' vec2 uv=gl_FragCoord.xy/R; float asp=R.x/R.y;',
-  ' float S=P.x, X=P.y, HW=P.z;',
-  ' float hgt=uv.y-S;',
-  ' float t=T*.07;',
-  ' vec2 p=vec2(uv.x*asp,uv.y)*2.4;',
-  ' vec2 q=vec2(fbm(p+vec2(0.,-t*2.)),fbm(p+vec2(5.2,1.3)-vec2(0.,t*1.6)));',
-  ' vec2 r=vec2(fbm(p+3.*q+vec2(1.7,9.2)-vec2(0.,t*3.)),fbm(p+3.*q+vec2(8.3,2.8)-vec2(0.,t*2.6)));',
-  ' float f=fbm(p+2.4*r-vec2(0.,t*4.5));',
-  ' float w=pow(clamp(1.-abs(f-.5)*2.,0.,1.),8.);',
-  ' float w2=pow(clamp(1.-abs(fbm(p*1.6+1.7*r-vec2(0.,t*5.5))-.5)*2.,0.,1.),13.);',
-  ' float body=smoothstep(.45,.85,f);',
-  ' float sway=(fbm(vec2(uv.y*1.8,T*.12))-.5)*.9*clamp(hgt*2.,0.,1.);',
-  ' float spread=HW*.55+max(hgt,0.)*.45;',
-  ' float px=(uv.x-X)/(spread*1.)+sway/spread*.25;',
-  ' float colm=exp(-px*px*1.4);',
-  ' float rise=smoothstep(-.06,.05,hgt)*(1.-smoothstep(.82,1.,uv.y));',
-  ' float dens=(w*.8+w2*.38+body*.16)*colm*rise;',
-  ' vec3 sc=mix(vec3(1.,.70,.40),vec3(.94,.92,.89),smoothstep(0.,.3,hgt));',
-  ' vec3 col=sc*dens*.78;',
-  ' for(int i=0;i<3;i++){float fi=float(i);',
-  '  vec2 g=vec2(uv.x*asp,uv.y)*vec2(11.+fi*3.,6.+fi*2.)+vec2(fi*7.3,-T*(.55+fi*.18));',
-  '  vec2 id=floor(g); vec2 fr=fract(g); vec2 rr=h2(id+fi*13.);',
-  '  if(h1(id+fi*3.1)>.78){',
-  '   vec2 pos=.2+.6*rr+vec2(sin(T*1.3+id.y*1.7)*.12,0.);',
-  '   float e=smoothstep(.07,.0,length((fr-pos)*vec2(1.,.6)));',
-  '   float fl=.55+.45*sin(T*9.+rr.x*40.);',
-  '   float m=exp(-pow((uv.x-X)/(HW*1.3+max(hgt,0.)*.4),2.))*smoothstep(-.02,.06,hgt)*(1.-smoothstep(.15,.6,hgt));',
-  '   col+=vec3(1.,.5,.14)*e*fl*m*1.4;}',
-  ' }',
-  ' gl_FragColor=vec4(col,1.);',
-  '}'].join('\n');
-  function sh(t,src){var o=gl.createShader(t);gl.shaderSource(o,src);gl.compileShader(o);return o;}
-  var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);
-  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){c.style.display='none';return;}
-  gl.useProgram(pr);
-  var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-  var la=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(la);gl.vertexAttribPointer(la,2,gl.FLOAT,false,0,0);
-  var uR=gl.getUniformLocation(pr,'R'),uT=gl.getUniformLocation(pr,'T'),uP=gl.getUniformLocation(pr,'P');
-  var img=c.parentNode.querySelector('img');
-  // stage image geometry: 1100x1100, smoke leaves the meat at ~40% from top, centered, half-width 36%
-  var IW=1100, IH=1100, TOP=0.40, HALF=0.36;
-  var scale=Math.min(window.devicePixelRatio||1,1.5)*.6, running=true, t0=performance.now(), src=[.65,.5,.23];
-  function size(){
-    var r=c.getBoundingClientRect(); c.width=Math.max(1,r.width*scale|0); c.height=Math.max(1,r.height*scale|0); gl.viewport(0,0,c.width,c.height);
-    var k=Math.max(r.width/IW, r.height/IH), dw=IW*k, dh=IH*k;
-    var pos=(getComputedStyle(img).objectPosition||'50% 50%').split(' ');
-    var py=parseFloat(pos[1]||'50')/100, pxp=parseFloat(pos[0]||'50')/100;
-    var oy=(r.height-dh)*py, ox=(r.width-dw)*pxp;
-    var topPx=oy+TOP*dh;
-    src=[1-topPx/r.height, (ox+dw*.5)/r.width, HALF*dw/r.width];
-  }
-  function frame(now){ if(!running) return; gl.uniform2f(uR,c.width,c.height); gl.uniform1f(uT,(now-t0)/1000+12.); gl.uniform3f(uP,src[0],src[1],src[2]); gl.drawArrays(gl.TRIANGLE_STRIP,0,4); requestAnimationFrame(frame); }
-  size(); window.addEventListener('resize',size); requestAnimationFrame(frame);
-  if('IntersectionObserver' in window) new IntersectionObserver(function(e){var v=e[0].isIntersecting; if(v&&!running){running=true;requestAnimationFrame(frame);} else if(!v) running=false;}).observe(c);
-})();
-</script>
 </body>
 </html>
