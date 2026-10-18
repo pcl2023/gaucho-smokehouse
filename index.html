@@ -381,13 +381,13 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <div class="ph"><img width="900" height="608" src="assets/menu-plate-900.webp" srcset="assets/menu-plate-480.webp 480w, assets/menu-plate-900.webp 900w" sizes="(max-width:560px) 80vw, (max-width:900px) 50vw, 340px" alt="Your Way Plate: smoked picanha sliced on the board with chimichurri, fries and greens" loading="lazy"></div>
+        <div class="ph"><img width="900" height="608" src="assets/menu-plate-900.webp" srcset="assets/menu-plate-480.webp 480w, assets/menu-plate-900.webp 900w" sizes="(max-width:560px) 80vw, (max-width:900px) 50vw, 340px" alt="Your Way Plate: smoked picanha sliced on the board with chimichurri, fries and a side salad" loading="lazy"></div>
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_more">Beyond the bun</p>
           <h3 data-i18n="more_h3">Cones and plates</h3>
           <ul class="extras">
             <li><span>Smoked Cone</span><span data-i18n="x_cone">over crinkle fries</span></li>
-            <li><span>Your Way Plate</span><span data-i18n="x_plate">fries and greens</span></li>
+            <li><span>Your Way Plate</span><span data-i18n="x_plate">with fries and side salad</span></li>
           </ul>
           <p style="margin-top:8px" data-i18n="x_note">Choose picanha, brisket, pastrami or pulled pork.</p>
         </div>
@@ -489,11 +489,13 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
         <div class="fld"><label for="q-guests" data-i18n="q_guests">Guests</label>
           <select id="q-guests" name="guests" required>
             <option value="" data-i18n="q_pick">Select</option>
-            <option value="Under 25" data-i18n="g1">Under 25</option>
-            <option value="25-50">25 to 50</option>
-            <option value="50-100">50 to 100</option>
-            <option value="100-200">100 to 200</option>
-            <option value="200+" data-i18n="g5">More than 200</option>
+            <option value="8-10" data-i18n="g1">8 to 10</option>
+            <option value="11-15" data-i18n="g2">11 to 15</option>
+            <option value="16-20" data-i18n="g3">16 to 20</option>
+            <option value="21-50" data-i18n="g4">21 to 50</option>
+            <option value="51-100" data-i18n="g5">51 to 100</option>
+            <option value="101-200" data-i18n="g6">101 to 200</option>
+            <option value="200+" data-i18n="g7">More than 200</option>
           </select></div>
         <div class="fld"><label for="q-type" data-i18n="q_type">Occasion</label>
           <select id="q-type" name="occasion" required>
@@ -504,7 +506,14 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
             <option value="Festival or market" data-i18n="o4">Festival or market</option>
             <option value="Other" data-i18n="o5">Other</option>
           </select></div>
-        <div class="fld full"><label for="q-where" data-i18n="q_where">Event location (city)</label><input id="q-where" name="location" autocomplete="address-level2" required maxlength="80"></div>
+        <div class="fld"><label for="q-svc" data-i18n="q_svc">Service</label>
+          <select id="q-svc" name="service" required>
+            <option value="" data-i18n="q_pick">Select</option>
+            <option value="Pickup or drop-off trays" data-i18n="s1">Trays, pickup or delivery</option>
+            <option value="On-site with our trailer" data-i18n="s2">On-site with our trailer</option>
+            <option value="Not sure yet" data-i18n="s3">Not sure yet</option>
+          </select></div>
+        <div class="fld"><label for="q-where" data-i18n="q_where">Event location (city)</label><input id="q-where" name="location" autocomplete="address-level2" required maxlength="80"></div>
         <div class="fld full"><label for="q-msg"><span data-i18n="q_msg">Anything else we should know?</span> <span class="opt" data-i18n="q_opt">(optional)</span></label><textarea id="q-msg" name="message" maxlength="1500"></textarea></div>
       </div>
       <div class="hp" aria-hidden="true"><label for="q-hp">Leave empty</label><input id="q-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
@@ -575,7 +584,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     cta_event:'Planea tu evento',
     menu_h2:'Los sándwiches',
     menu_note:'Todos los sándwiches se sirven con papas onduladas.',
-    d_picanha:'Picanha ahumada con nogal en ciabatta artesanal, con chimichurri casero, mezcla de hojas y mayonesa gaucho de cilantro.',
+    d_picanha:'Picanha ahumada con nogal en ciabatta artesanal, con chimichurri casero, lechugas mixtas y mayonesa gaucho de cilantro.',
     d_brisket:'Ahumado durante 15 horas. Pan pretzel, glaseado de bourbon con cebolla y tocino, salsa gaucho, coleslaw, salsa BBQ, queso fundido y cebolla morada encurtida.',
     t_pastrami:'Ahumado lento por 10 horas',
     d_pastrami:'Pastrami de la casa en pan pretzel suave, con queso fundido, rúcula fresca, pepinillos y un toque de mostaza.',
@@ -586,7 +595,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     t_more:'Más allá del pan',
     more_h3:'Conos y platos',
     x_cone:'sobre papas onduladas',
-    x_plate:'papas y hojas frescas',
+    x_plate:'con papas y ensalada',
     x_note:'Elige picanha, brisket, pastrami o pulled pork.',
     craft_h2:'Leña de verdad. Cortes enteros. Sin atajos.',
     craft_p:'Cada corte se limpia y se sazona a mano, y luego pasa horas en el humo: diez el pastrami, quince el brisket. Nada sale del ahumador antes de estar listo.',
@@ -604,7 +613,8 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     q_h3:'Pide una cotización de catering',
     q_sub:'Cuéntanos de tu evento. Te respondemos con un menú y una cotización.',
     q_name:'Nombre', q_email:'Correo', q_phone:'Teléfono', q_opt:'(opcional)', q_date:'Fecha del evento',
-    q_guests:'Invitados', q_pick:'Elige', g1:'Menos de 25', g5:'Más de 200',
+    q_guests:'Invitados', q_pick:'Elige', g1:'8 a 10', g2:'11 a 15', g3:'16 a 20', g4:'21 a 50', g5:'51 a 100', g6:'101 a 200', g7:'Más de 200',
+    q_svc:'Servicio', s1:'Bandejas, para recoger o con entrega', s2:'En sitio con nuestro tráiler', s3:'Aún no lo sé',
     q_type:'Ocasión', o1:'Boda', o2:'Evento corporativo', o3:'Fiesta privada', o4:'Festival o mercado', o5:'Otra',
     q_where:'Lugar del evento (ciudad)', q_msg:'¿Algo más que debamos saber?',
     q_btn:'Pedir mi cotización',
@@ -642,7 +652,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
       n.innerHTML = (lang === 'es' && ES[k]) ? ES[k] : EN[i];
     });
     plainTags.forEach(function(n,i){ n.textContent = (lang === 'es' && TAGS_ES[plainEN[i]]) ? TAGS_ES[plainEN[i]] : plainEN[i]; });
-    document.documentElement.lang = lang; window.gauchoLang = lang;
+    document.documentElement.lang = lang; window.gauchoLang = lang; var wle=document.getElementById('wl-email'); if(wle) wle.placeholder = lang==='es' ? 'tu@correo.com' : 'you@email.com';
     btns.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
     try { localStorage.setItem('gaucho-lang', lang); } catch(e) {}
   }
