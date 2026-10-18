@@ -9,15 +9,16 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="GAUCHO Smokehouse">
 <meta property="og:description" content="Southern fusion barbecue. Where the American cowboy meets the South American gaucho. Nashville, Tennessee.">
-<meta property="og:image" content="https://pcl2023.github.io/gaucho-smokehouse/assets/og.jpg">
+<meta property="og:image" content="https://pcl2023.github.io/gaucho-smokehouse/assets/og-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preload" as="image" href="assets/hero-brisket-real-743.webp" imagesrcset="assets/hero-brisket-real-480.webp 480w, assets/hero-brisket-real-743.webp 743w" imagesizes="(max-width:700px) 100vw, 58vw" fetchpriority="high">
 <link rel="preload" href="assets/fonts/playfair-display-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FoodEstablishment","name":"GAUCHO Smokehouse","url":"https://pcl2023.github.io/gaucho-smokehouse/","image":"https://pcl2023.github.io/gaucho-smokehouse/assets/og.jpg","servesCuisine":["Barbecue","Southern fusion","Smoked sandwiches"],"areaServed":{"@type":"City","name":"Nashville, Tennessee"},"slogan":"The Ultimate Smoked Experience","sameAs":["https://www.instagram.com/gauchosmokehouse"]}
+{"@context":"https://schema.org","@type":"FoodEstablishment","name":"GAUCHO Smokehouse","url":"https://pcl2023.github.io/gaucho-smokehouse/","image":"https://pcl2023.github.io/gaucho-smokehouse/assets/og-v2.jpg","servesCuisine":["Barbecue","Southern fusion","Smoked sandwiches"],"areaServed":{"@type":"City","name":"Nashville, Tennessee"},"slogan":"The Ultimate Smoked Experience","sameAs":["https://www.instagram.com/gauchosmokehouse"]}
 </script>
 <style>
 @font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/playfair-display-latin-600-normal.woff2) format('woff2')}
@@ -55,7 +56,7 @@ body{
   font-family:'Source Sans 3',system-ui,sans-serif;font-size:var(--t-md);line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:var(--brass);text-decoration:none}
 a:hover{color:var(--pale)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
@@ -63,6 +64,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
 h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600}
 h2{font-size:var(--t-h2);line-height:1.15;margin-bottom:10px}
 h3{font-size:var(--t-lg);line-height:1.25}
+h1,h2,h3{text-wrap:balance}
+p,blockquote{text-wrap:pretty}
 .rule{width:44px;height:2px;background:var(--brass);margin-bottom:16px}
 .muted{color:var(--smoke)}
 section{padding:var(--sec) 0}
@@ -76,6 +79,9 @@ nav{position:sticky;top:0;z-index:50;background:rgba(20,15,8,.94);backdrop-filte
 .nav-links{display:flex;align-items:center;gap:20px;font-size:var(--t-sm)}
 .nav-links a{color:var(--pale)}
 .nav-links a:hover{color:var(--brass)}
+.nav-links a{position:relative;transition:color .2s}
+.nav-links a.active{color:var(--brass)}
+.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--brass)}
 .lang{display:inline-flex;border:1px solid var(--brass)}
 .lang button{font-family:'Source Sans 3',sans-serif;font-size:var(--t-xs);letter-spacing:.06em;background:transparent;color:var(--brass);border:0;padding:2px 8px;cursor:pointer;line-height:1.5}
 .lang button + button{border-left:1px solid var(--brass)}
@@ -104,7 +110,7 @@ h1 em{font-style:normal;color:var(--brass)}
   .hero-img img{animation:settle 1.4s ease-out both}
 }
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@keyframes settle{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+@keyframes settle{from{transform:scale(1.04)}to{transform:none}}
 @keyframes drift{from{transform:scale(1)}to{transform:scale(1.04)}}
 @keyframes smokeup{from{transform:translateY(12%) scale(1)}to{transform:translateY(-10%) scale(1.15)}}
 @media (prefers-reduced-motion: no-preference){
@@ -184,10 +190,13 @@ h1 em{font-style:normal;color:var(--brass)}
 .catering p{margin-bottom:10px}
 .catering .cta-row{margin-top:18px}
 
-/* nashville */
-.nashville{text-align:center;background:var(--soot);border-top:1px solid var(--line)}
+/* nashville closing band */
+.nashville{text-align:center;border-top:1px solid var(--line);background:radial-gradient(ellipse at 50% 120%,#3a1c07 0%,#1a1008 45%,#0d0a05 78%);padding:64px 0 68px}
+.nashville .emblem{width:132px;margin:0 auto 22px;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.nashville h2{font-size:clamp(1.6rem,2.8vw,2.3rem)}
 .nashville .rule{margin:0 auto 16px}
-.nashville p{max-width:34em;margin:0 auto 6px;color:var(--smoke)}
+.nashville p{max-width:34em;margin:0 auto 18px;color:var(--smoke)}
+.nashville .cta-row{justify-content:center}
 
 /* footer */
 footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
@@ -199,7 +208,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
 .foot-col h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:var(--t-sm);color:var(--smoke);margin-bottom:8px}
 .foot-col a{display:block;font-size:var(--t-sm);margin-bottom:4px}
 .foot-col p{font-size:var(--t-sm);color:var(--smoke)}
-.fineprint{margin-top:18px;text-align:center;color:#6d6252;font-size:var(--t-xs)}
+.fineprint{margin-top:18px;text-align:center;color:#8f826c;font-size:var(--t-xs)}
 
 /* mobile action bar */
 .mbar{display:none}
@@ -253,7 +262,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
 
 <nav aria-label="Main">
   <div class="nav-inner">
-    <a class="wordmark" href="#top"><img src="assets/mark.jpg" alt="" width="30" height="30">GAUCHO <span>SMOKEHOUSE</span></a>
+    <a class="wordmark" href="#top"><img src="assets/mark-96.webp" width="30" height="30" alt="">GAUCHO <span>SMOKEHOUSE</span></a>
     <div class="nav-links">
       <a href="#menu" data-i18n="nav_menu">Menu</a>
       <a href="#story" class="hide-m" data-i18n="nav_story">Our story</a>
@@ -276,8 +285,8 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
       </div>
     </div>
     <div class="hero-img">
-      <img src="assets/hero-brisket-real.jpg" alt="Our pitmaster holding a whole smoked brisket fresh off the pit" fetchpriority="high">
-      <img class="smoke-tex" src="assets/smoke-real.jpg" alt="" aria-hidden="true">
+      <img width="743" height="1280" src="assets/hero-brisket-real-743.webp" srcset="assets/hero-brisket-real-480.webp 480w, assets/hero-brisket-real-743.webp 743w" sizes="(max-width:700px) 100vw, 58vw" alt="Our pitmaster holding a whole smoked brisket fresh off the pit" fetchpriority="high">
+      <img width="1400" height="1067" class="smoke-tex" fetchpriority="low" src="assets/smoke-real-1400.webp" srcset="assets/smoke-real-480.webp 480w, assets/smoke-real-960.webp 960w, assets/smoke-real-1400.webp 1400w" sizes="60vw" alt="" aria-hidden="true">
     </div>
   </div>
 </header>
@@ -293,7 +302,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     </div>
     <div class="menu-grid">
       <article class="dish">
-        <div class="ph"><img src="assets/menu-picanha.jpg" alt="Smoked picanha with chimichurri on ciabatta" loading="lazy"></div>
+        <div class="ph"><img width="696" height="535" src="assets/menu-picanha-696.webp" srcset="assets/menu-picanha-480.webp 480w, assets/menu-picanha-696.webp 696w" sizes="(max-width:560px) 80vw, (max-width:900px) 50vw, 340px" alt="Smoked picanha with chimichurri on ciabatta" loading="lazy"></div>
         <div class="dish-body">
           <p class="dish-tag">House favorite</p>
           <h3>Smoked Picanha</h3>
@@ -301,7 +310,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <div class="ph"><img src="assets/menu-brisket.jpg" alt="Fifteen-hour smoked brisket on a pretzel bun" loading="lazy" style="object-position:50% 38%"></div>
+        <div class="ph"><img width="506" height="854" src="assets/menu-brisket-506.webp" srcset="assets/menu-brisket-480.webp 480w, assets/menu-brisket-506.webp 506w" sizes="(max-width:560px) 80vw, (max-width:900px) 50vw, 340px" alt="Fifteen-hour smoked brisket on a pretzel bun" loading="lazy" style="object-position:50% 38%"></div>
         <div class="dish-body">
           <p class="dish-tag">Pitmaster cut</p>
           <h3>Smoked Brisket</h3>
@@ -309,7 +318,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <div class="ph"><img src="assets/menu-pastrami.jpg" alt="Smoked pastrami with melted cheese and arugula on a pretzel bun" loading="lazy" style="object-position:50% 35%"></div>
+        <div class="ph"><img width="521" height="818" src="assets/menu-pastrami-521.webp" srcset="assets/menu-pastrami-480.webp 480w, assets/menu-pastrami-521.webp 521w" sizes="(max-width:560px) 80vw, (max-width:900px) 50vw, 340px" alt="Smoked pastrami with melted cheese and arugula on a pretzel bun" loading="lazy" style="object-position:50% 35%"></div>
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_pastrami">Slow-smoked 10 hours</p>
           <h3>Smoked Pastrami</h3>
@@ -317,7 +326,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <div class="ph"><img src="assets/menu-pulledpork.jpg" alt="Smoked pulled pork with barbecue sauce and coleslaw on a pretzel bun" loading="lazy"></div>
+        <div class="ph"><img width="592" height="444" src="assets/menu-pulledpork-592.webp" srcset="assets/menu-pulledpork-480.webp 480w, assets/menu-pulledpork-592.webp 592w" sizes="(max-width:560px) 80vw, (max-width:900px) 50vw, 340px" alt="Smoked pulled pork with barbecue sauce and coleslaw on a pretzel bun" loading="lazy"></div>
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_pulled">Customer favorite</p>
           <h3>Smoked Pulled Pork</h3>
@@ -325,7 +334,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <div class="ph"><img src="assets/menu-pretzelpork.jpg" alt="Signature pork pretzel sandwich with roasted red peppers" loading="lazy" style="object-position:50% 45%"></div>
+        <div class="ph"><img width="548" height="630" src="assets/menu-pretzelpork-548.webp" srcset="assets/menu-pretzelpork-480.webp 480w, assets/menu-pretzelpork-548.webp 548w" sizes="(max-width:560px) 80vw, (max-width:900px) 50vw, 340px" alt="Signature pork pretzel sandwich with roasted red peppers" loading="lazy" style="object-position:50% 45%"></div>
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_pretzel">Chef's selection</p>
           <h3>Signature Pork Pretzel</h3>
@@ -333,7 +342,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <div class="ph"><img src="assets/menu-plate.jpg" alt="Your Way Plate: smoked picanha sliced on the board with chimichurri, fries and greens" loading="lazy"></div>
+        <div class="ph"><img width="900" height="608" src="assets/menu-plate-900.webp" srcset="assets/menu-plate-480.webp 480w, assets/menu-plate-900.webp 900w" sizes="(max-width:560px) 80vw, (max-width:900px) 50vw, 340px" alt="Your Way Plate: smoked picanha sliced on the board with chimichurri, fries and greens" loading="lazy"></div>
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_more">Beyond the bun</p>
           <h3 data-i18n="more_h3">Cones and plates</h3>
@@ -360,15 +369,15 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     </div>
     <div class="craft-photos">
       <figure>
-        <div class="ph"><img src="assets/craft-rub.jpg" alt="House rub of whole spices" loading="lazy"></div>
+        <div class="ph"><img width="900" height="1200" src="assets/craft-rub-900.webp" srcset="assets/craft-rub-480.webp 480w, assets/craft-rub-900.webp 900w" sizes="(max-width:560px) 78vw, (max-width:900px) 33vw, 340px" alt="House rub of whole spices" loading="lazy"></div>
         <figcaption><strong data-i18n="f1t">House rubs</strong><span data-i18n="f1d">Whole spices, ground in small batches for each cut.</span></figcaption>
       </figure>
       <figure>
-        <div class="ph"><img src="assets/craft-season.jpg" alt="Pitmaster seasoning a whole cut by hand" loading="lazy" style="object-position:50% 30%"></div>
+        <div class="ph"><img width="826" height="1280" src="assets/craft-season-826.webp" srcset="assets/craft-season-480.webp 480w, assets/craft-season-826.webp 826w" sizes="(max-width:560px) 78vw, (max-width:900px) 33vw, 340px" alt="Pitmaster seasoning a whole cut by hand" loading="lazy" style="object-position:50% 30%"></div>
         <figcaption><strong data-i18n="f2t">Seasoned by hand</strong><span data-i18n="f2d">Every piece goes through our pitmaster's hands.</span></figcaption>
       </figure>
       <figure>
-        <div class="ph"><img src="assets/craft-smoke.jpg" alt="Brisket bark on the grate under wood smoke" loading="lazy"></div>
+        <div class="ph"><img width="900" height="1083" src="assets/craft-smoke-900.webp" srcset="assets/craft-smoke-480.webp 480w, assets/craft-smoke-900.webp 900w" sizes="(max-width:560px) 78vw, (max-width:900px) 33vw, 340px" alt="Brisket bark on the grate under wood smoke" loading="lazy"></div>
         <figcaption><strong data-i18n="f3t">Up to 15 hours of smoke</strong><span data-i18n="f3d">Low and slow, until the bark says it is done.</span></figcaption>
       </figure>
     </div>
@@ -402,7 +411,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
 <section id="story">
   <div class="wrap souths">
     <figure class="pit-photo">
-      <img src="assets/pitmaster.jpg" alt="Adrián Yánez, chef and pitmaster of GAUCHO Smokehouse" loading="lazy">
+      <img width="762" height="940" src="assets/pitmaster-762.webp" srcset="assets/pitmaster-480.webp 480w, assets/pitmaster-762.webp 762w" sizes="(max-width:700px) 420px, 440px" alt="Adrián Yánez, chef and pitmaster of GAUCHO Smokehouse" loading="lazy">
       <figcaption data-i18n="pit_cap">Adrián Yánez, chef and pitmaster</figcaption>
     </figure>
     <div>
@@ -421,7 +430,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
 </section>
 
 <section class="catering" id="catering">
-  <img src="assets/catering-night.jpg" alt="GAUCHO Smokehouse stand serving guests at a night event" loading="lazy">
+  <img width="1400" height="1050" src="assets/catering-night-1400.webp" srcset="assets/catering-night-480.webp 480w, assets/catering-night-960.webp 960w, assets/catering-night-1400.webp 1400w" sizes="100vw" alt="GAUCHO Smokehouse stand serving guests at a night event" loading="lazy">
   <div class="wrap">
     <div class="copy">
       <h2 data-i18n="cat_h2">The smokehouse comes to you.</h2>
@@ -437,10 +446,13 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
 
 <section class="nashville" id="nashville">
   <div class="wrap">
+    <img class="emblem" src="assets/emblem-252.webp" width="132" height="108" alt="" loading="lazy">
     <h2 data-i18n="nash_h2">Next: a Nashville smokehouse of our own.</h2>
     <div class="rule"></div>
     <p data-i18n="nash_p1">Our first dining room is in the works. Until the doors open, find us where the smoke is: markets, festivals and private events around the city.</p>
-    <p data-i18n="nash_p2"><a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Follow @gauchosmokehouse</a> for dates and locations.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="https://www.instagram.com/gauchosmokehouse" rel="noopener" data-i18n="nash_btn">Follow us for dates and locations</a>
+    </div>
   </div>
 </section>
 
@@ -453,7 +465,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="assets/emblem.jpg" alt="GAUCHO Smokehouse emblem">
+        <img width="252" height="207" src="assets/emblem-252.webp" srcset="assets/emblem-252.webp 252w" sizes="84px" alt="GAUCHO Smokehouse emblem">
         <p><strong>GAUCHO Smokehouse</strong><span data-i18n="foot_tag">Southern fusion barbecue. Nashville, Tennessee.</span></p>
       </div>
       <div class="foot-col">
@@ -514,7 +526,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
     cat_btn:'Escríbenos por Instagram',
     nash_h2:'Lo que viene: un ahumadero propio en Nashville.',
     nash_p1:'Nuestro primer local está en camino. Mientras abrimos, encuéntranos donde está el humo: mercados, festivales y eventos privados por toda la ciudad.',
-    nash_p2:'<a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Sigue a @gauchosmokehouse</a> para fechas y ubicaciones.',
+    nash_btn:'Síguenos para ver fechas y ubicaciones',
     swipe:'Desliza para ver los seis',
     rev_h2:'Lo que dicen nuestros clientes',
     rev_src1:'Reseña en Google',
@@ -573,6 +585,20 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:36px 0 22px}
   }
   window.addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(upd); } }, {passive:true});
   window.addEventListener('resize', upd); upd();
+})();
+</script>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  var map=links.map(function(a){return {a:a,sec:document.querySelector(a.getAttribute('href'))};}).filter(function(x){return x.sec;});
+  var ticking=false;
+  function spy(){
+    ticking=false; var mid=window.innerHeight*0.35, cur=null;
+    map.forEach(function(x){ var r=x.sec.getBoundingClientRect(); if(r.top<=mid && r.bottom>mid) cur=x; });
+    map.forEach(function(x){ x.a.classList.toggle('active', x===cur); });
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(spy);} },{passive:true});
+  spy();
 })();
 </script>
 </body>
