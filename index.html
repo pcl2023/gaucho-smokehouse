@@ -170,6 +170,16 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
   .foot-right{text-align:center}
 }
 .fineprint{margin-top:40px;text-align:center;color:#6d6252;font-size:.85rem}
+
+.lang{
+  font-family:'Newsreader',serif;font-size:.85rem;letter-spacing:.08em;
+  background:transparent;color:var(--brass);border:1px solid var(--brass);
+  padding:3px 10px;cursor:pointer;line-height:1.4;
+}
+.lang:hover{background:var(--brass);color:#140f08}
+.nav-links{align-items:baseline}
+.wordmark{white-space:nowrap}
+@media(max-width:640px){.wordmark{font-size:1.05rem;letter-spacing:.1em}.wordmark span{letter-spacing:.18em}.nav-inner{padding:14px 16px}}
 </style>
 </head>
 <body>
@@ -178,10 +188,11 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
   <div class="nav-inner">
     <a class="wordmark" href="#top">GAUCHO <span>SMOKEHOUSE</span></a>
     <div class="nav-links">
-      <a href="#menu">Menu</a>
+      <a href="#menu" data-i18n="nav_menu">Menu</a>
       <a href="#catering">Catering</a>
       <a href="#nashville" class="hide-m">Nashville</a>
-      <a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Instagram</a>
+      <a href="https://www.instagram.com/gauchosmokehouse" rel="noopener" class="hide-m">Instagram</a>
+      <button type="button" class="lang" id="lang-toggle" aria-label="Ver en español">ES</button>
     </div>
   </div>
 </nav>
@@ -190,11 +201,11 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
   <div class="hero-grid">
     <div class="hero-copy">
       <p class="tag">The Ultimate Smoked Experience</p>
-      <h1>Where the American cowboy meets the <em>South American gaucho.</em></h1>
-      <p class="lede">Southern fusion barbecue, born of two souths: American hickory smoke and the open-fire tradition of the gaucho. Whole cuts, smoked low and slow, served on artisan bread.</p>
+      <h1 data-i18n="h1">Where the American cowboy meets the <em>South American gaucho.</em></h1>
+      <p class="lede" data-i18n="lede">Southern fusion barbecue, born of two souths: American hickory smoke and the open-fire tradition of the gaucho. Whole cuts, smoked low and slow, served on artisan bread.</p>
       <div class="cta-row">
-        <a class="btn solid" href="#catering">Book catering</a>
-        <a class="btn" href="#menu">See the menu</a>
+        <a class="btn solid" href="#catering" data-i18n="cta_catering">Book catering</a>
+        <a class="btn" href="#menu" data-i18n="cta_menu">See the menu</a>
       </div>
     </div>
     <div class="hero-img">
@@ -205,58 +216,58 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
 
 <figure class="band">
   <img src="assets/smoke-band.jpg" alt="Whole cut of meat under blue wood smoke on the pit" loading="lazy">
-  <figcaption>Low and slow. Every day.</figcaption>
+  <figcaption data-i18n="band">Low and slow. Every day.</figcaption>
 </figure>
 
 <section id="menu">
   <div class="wrap">
     <div class="menu-head">
       <div>
-        <h2>The sandwiches</h2>
+        <h2 data-i18n="menu_h2">The sandwiches</h2>
         <div class="rule"></div>
       </div>
-      <p class="menu-note">All sandwiches served with crinkle-cut fries.</p>
+      <p class="menu-note" data-i18n="menu_note">All sandwiches served with crinkle-cut fries.</p>
     </div>
     <div class="menu-grid">
       <article class="dish">
         <img src="assets/menu-picanha.jpg" alt="Smoked picanha slices under fresh chimichurri on artisan ciabatta" loading="lazy">
         <div class="dish-body">
           <h3>Smoked Picanha</h3>
-          <p>Hickory-smoked picanha on artisan ciabatta, homemade chimichurri, fresh greens, gaucho cilantro mayo.</p>
+          <p data-i18n="d_picanha">Hickory-smoked picanha on artisan ciabatta, homemade chimichurri, fresh greens, gaucho cilantro mayo.</p>
         </div>
       </article>
       <article class="dish">
         <img src="assets/menu-brisket.jpg" alt="Fifteen-hour smoked brisket piled over coleslaw and melted cheese" loading="lazy" style="object-position:50% 42%">
         <div class="dish-body">
           <h3>Smoked Brisket</h3>
-          <p>Fifteen-hour brisket on a pretzel bun with bourbon onion bacon glaze, melted cheese, coleslaw and pickled red onions.</p>
+          <p data-i18n="d_brisket">Fifteen-hour brisket on a pretzel bun with bourbon onion bacon glaze, melted cheese, coleslaw and pickled red onions.</p>
         </div>
       </article>
       <article class="dish">
         <img src="assets/menu-pastrami.jpg" alt="Smoked pastrami with melted cheese, arugula and pickles on a pretzel bun" loading="lazy" style="object-position:50% 38%">
         <div class="dish-body">
           <h3>Smoked Pastrami</h3>
-          <p>House pastrami, smoked to perfection, on a soft pretzel bun with melted cheese, arugula, tangy pickles and mustard.</p>
+          <p data-i18n="d_pastrami">House pastrami, smoked to perfection, on a soft pretzel bun with melted cheese, arugula, tangy pickles and mustard.</p>
         </div>
       </article>
       <article class="dish">
         <img src="assets/menu-pulledpork.jpg" alt="Slow-smoked pulled pork close up" loading="lazy">
         <div class="dish-body">
           <h3>Smoked Pulled Pork</h3>
-          <p>Brined and slow-smoked for deep flavor, stacked on a pretzel bun with coleslaw, gaucho sauce and dill pickles.</p>
+          <p data-i18n="d_pulled">Brined and slow-smoked for deep flavor, stacked on a pretzel bun with coleslaw, gaucho sauce and dill pickles.</p>
         </div>
       </article>
       <article class="dish">
         <img src="assets/menu-pretzelpork.jpg" alt="Signature pork pretzel sandwich with roasted red peppers and melted cheese" loading="lazy">
         <div class="dish-body">
           <h3>Signature Pork Pretzel</h3>
-          <p>Smoked pork loin, balsamic caramelized onions, roasted red peppers, melted cheese and arugula on an artisan pretzel bun.</p>
+          <p data-i18n="d_pretzel">Smoked pork loin, balsamic caramelized onions, roasted red peppers, melted cheese and arugula on an artisan pretzel bun.</p>
         </div>
       </article>
       <article class="dish text-only">
         <div class="dish-body">
-          <h3>From the pit, your way</h3>
-          <p>Every smoked meat is also served as a loaded cone over golden fries, or as a plate with fries and fresh greens.</p>
+          <h3 data-i18n="yw_h3">From the pit, your way</h3>
+          <p data-i18n="yw_p">Every smoked meat is also served as a loaded cone over golden fries, or as a plate with fries and fresh greens.</p>
         </div>
       </article>
     </div>
@@ -265,13 +276,13 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
       <img src="assets/menu-picanha-slices.jpg" alt="Sliced smoked picanha dressed with chimichurri" loading="lazy">
       <div class="menu-list-wrap">
         <ul class="menu-list">
-          <h3>Cones</h3>
-          <li><span>Smoked Picanha Cone</span><span>fries, chimichurri</span></li>
-          <li><span>Smoked Pastrami Cone</span><span>fries, gaucho sauce</span></li>
-          <li><span>Smoked Brisket Cone</span><span>fries, BBQ glaze</span></li>
-          <li><span>Pulled Pork Cone</span><span>fries, smoky BBQ</span></li>
+          <h3 data-i18n="cones">Cones</h3>
+          <li><span>Smoked Picanha Cone</span><span data-i18n="c1">fries, chimichurri</span></li>
+          <li><span>Smoked Pastrami Cone</span><span data-i18n="c2">fries, gaucho sauce</span></li>
+          <li><span>Smoked Brisket Cone</span><span data-i18n="c3">fries, BBQ glaze</span></li>
+          <li><span>Pulled Pork Cone</span><span data-i18n="c4">fries, smoky BBQ</span></li>
           <h3>Your Way Plate</h3>
-          <li><span>Pick your cut: picanha, brisket, pastrami or pulled pork</span><span>fries &amp; greens</span></li>
+          <li><span data-i18n="yw_pick">Pick your cut: picanha, brisket, pastrami or pulled pork</span><span data-i18n="yw_side">fries &amp; greens</span></li>
         </ul>
       </div>
     </div>
@@ -281,22 +292,22 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
 <section class="craft" id="craft">
   <div class="wrap">
     <div class="craft-head">
-      <h2>Real wood. Whole cuts. No shortcuts.</h2>
+      <h2 data-i18n="craft_h2">Real wood. Whole cuts. No shortcuts.</h2>
       <div class="rule"></div>
-      <p class="muted">Every piece of meat is trimmed, cured and seasoned by hand, then smoked for up to fifteen hours. Nothing leaves the pit before it is ready.</p>
+      <p class="muted" data-i18n="craft_p">Every piece of meat is trimmed, cured and seasoned by hand, then smoked for up to fifteen hours. Nothing leaves the pit before it is ready.</p>
     </div>
     <div class="craft-grid">
       <figure>
         <img src="assets/craft-rub.jpg" alt="House rub of whole spices, coriander and peppercorns" loading="lazy">
-        <figcaption><strong>House rubs</strong>Whole spices, ground in small batches for each cut.</figcaption>
+        <figcaption data-i18n="f1"><strong>House rubs</strong>Whole spices, ground in small batches for each cut.</figcaption>
       </figure>
       <figure>
         <img src="assets/craft-season.jpg" alt="Pitmaster seasoning a whole brisket by hand" loading="lazy">
-        <figcaption><strong>Seasoned by hand</strong>Every cut is prepared by our pitmaster. No two days are the same.</figcaption>
+        <figcaption data-i18n="f2"><strong>Seasoned by hand</strong>Every cut is prepared by our pitmaster. No two days are the same.</figcaption>
       </figure>
       <figure>
         <img src="assets/craft-brisket.jpg" alt="Pitmaster presenting a whole smoked cut fresh off the pit" loading="lazy">
-        <figcaption><strong>Up to 15 hours of smoke</strong>Hickory and oak, low and slow, until the bark says it is done.</figcaption>
+        <figcaption data-i18n="f3"><strong>Up to 15 hours of smoke</strong>Hickory and oak, low and slow, until the bark says it is done.</figcaption>
       </figure>
     </div>
   </div>
@@ -306,11 +317,11 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
   <div class="wrap souths">
     <img src="assets/horsemen.jpg" alt="Gauchos on horseback at sunset" loading="lazy">
     <div class="copy">
-      <h2>Two souths. One fire.</h2>
+      <h2 data-i18n="story_h2">Two souths. One fire.</h2>
       <div class="rule"></div>
-      <p>The American South taught the world patience: whole cuts over hickory and oak, hours of smoke, nothing rushed. The south of South America brought fire out onto the open plain, where the gaucho made asado a way of life.</p>
-      <p>GAUCHO Smokehouse joins those two traditions on one cutting board. Our rubs, our chimichurri and our gaucho sauce come from one side of the hemisphere; our pits and our smoke come from the other.</p>
-      <p class="muted">Different lands. Same fire.</p>
+      <p data-i18n="story_p1">The American South taught the world patience: whole cuts over hickory and oak, hours of smoke, nothing rushed. The south of South America brought fire out onto the open plain, where the gaucho made asado a way of life.</p>
+      <p data-i18n="story_p2">GAUCHO Smokehouse joins those two traditions on one cutting board. Our rubs, our chimichurri and our gaucho sauce come from one side of the hemisphere; our pits and our smoke come from the other.</p>
+      <p class="muted" data-i18n="story_p3">Different lands. Same fire.</p>
     </div>
   </div>
 </section>
@@ -319,12 +330,12 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
   <img src="assets/catering-night.jpg" alt="GAUCHO Smokehouse stand serving guests at a night event" loading="lazy">
   <div class="wrap">
     <div class="copy">
-      <h2>The smokehouse comes to you.</h2>
+      <h2 data-i18n="cat_h2">The smokehouse comes to you.</h2>
       <div class="rule"></div>
-      <p>GAUCHO serves markets, festivals and private events across Middle Tennessee. Weddings, corporate lunches, backyard feasts: we bring the pit, the pitmaster and the fire.</p>
-      <p>Tell us the date, the headcount and the occasion, and we will build the menu around it.</p>
+      <p data-i18n="cat_p1">GAUCHO serves markets, festivals and private events across Middle Tennessee. Weddings, corporate lunches, backyard feasts: we bring the pit, the pitmaster and the fire.</p>
+      <p data-i18n="cat_p2">Tell us the date, the headcount and the occasion, and we will build the menu around it.</p>
       <div class="cta-row" style="margin-top:28px">
-        <a class="btn solid" href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Message us on Instagram</a>
+        <a class="btn solid" href="https://www.instagram.com/gauchosmokehouse" rel="noopener" data-i18n="cat_btn">Message us on Instagram</a>
       </div>
     </div>
   </div>
@@ -332,9 +343,9 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
 
 <section class="nashville" id="nashville">
   <div class="wrap">
-    <h2>Next: a Nashville smokehouse of our own.</h2>
-    <p>Our first dining room is in the works in Nashville, Tennessee. Until the doors open, find us where the smoke is: markets, festivals and private events around the city.</p>
-    <p><a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Follow @gauchosmokehouse</a> for dates and locations.</p>
+    <h2 data-i18n="nash_h2">Next: a Nashville smokehouse of our own.</h2>
+    <p data-i18n="nash_p1">Our first dining room is in the works in Nashville, Tennessee. Until the doors open, find us where the smoke is: markets, festivals and private events around the city.</p>
+    <p data-i18n="nash_p2"><a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Follow @gauchosmokehouse</a> for dates and locations.</p>
   </div>
 </section>
 
@@ -343,16 +354,84 @@ footer{border-top:1px solid var(--line);padding:64px 0 56px;background:#0d0a05}
     <img src="assets/emblem.jpg" alt="GAUCHO Smokehouse emblem" loading="lazy">
     <div class="foot-mid">
       <p><strong>GAUCHO Smokehouse</strong></p>
-      <p>Southern fusion barbecue. Nashville, Tennessee.</p>
+      <p data-i18n="foot_tag">Southern fusion barbecue. Nashville, Tennessee.</p>
     </div>
     <div class="foot-right">
       <a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">@gauchosmokehouse</a>
-      <a href="#menu">Menu</a>
+      <a href="#menu" data-i18n="nav_menu">Menu</a>
       <a href="#catering">Catering</a>
     </div>
   </div>
-  <p class="fineprint">© 2026 GAUCHO Smokehouse. All rights reserved.</p>
+  <p class="fineprint" data-i18n="fine">© 2026 GAUCHO Smokehouse. All rights reserved.</p>
 </footer>
 
+
+<script>
+(function(){
+  var ES = {
+    nav_menu:'Menú',
+    h1:'Donde el cowboy americano se encuentra con el <em>gaucho sudamericano.</em>',
+    lede:'Barbacoa de fusión sureña, hija de dos sures: el humo de nogal del sur de Estados Unidos y el fuego abierto del gaucho. Cortes enteros ahumados a fuego lento, servidos en pan artesanal.',
+    cta_catering:'Reservar catering',
+    cta_menu:'Ver el menú',
+    band:'A fuego lento. Todos los días.',
+    menu_h2:'Los sándwiches',
+    menu_note:'Todos los sándwiches se sirven con papas onduladas.',
+    d_picanha:'Picanha ahumada con nogal en ciabatta artesanal, chimichurri casero, hojas frescas y mayonesa gaucho de cilantro.',
+    d_brisket:'Brisket de quince horas en pan pretzel, glaseado de bourbon con cebolla y tocino, queso fundido, coleslaw y cebolla morada encurtida.',
+    d_pastrami:'Pastrami de la casa, ahumado en su punto, en pan pretzel suave con queso fundido, rúcula, pepinillos y mostaza.',
+    d_pulled:'Cerdo en salmuera ahumado lentamente, servido en pan pretzel con coleslaw, salsa gaucho y pepinillos.',
+    d_pretzel:'Lomo de cerdo ahumado, cebolla caramelizada al balsámico, pimientos asados, queso fundido y rúcula en pan pretzel artesanal.',
+    yw_h3:'Del ahumador, a tu manera',
+    yw_p:'Todas nuestras carnes ahumadas también se sirven en cono sobre papas doradas, o en plato con papas y hojas frescas.',
+    cones:'Conos',
+    c1:'papas, chimichurri', c2:'papas, salsa gaucho', c3:'papas, glaseado BBQ', c4:'papas, BBQ ahumada',
+    yw_pick:'Elige tu corte: picanha, brisket, pastrami o pulled pork',
+    yw_side:'papas y hojas',
+    craft_h2:'Leña de verdad. Cortes enteros. Sin atajos.',
+    craft_p:'Cada pieza se limpia, se cura y se sazona a mano, y luego pasa hasta quince horas en el humo. Nada sale del ahumador antes de estar listo.',
+    f1:'<strong>Rubs de la casa</strong>Especias enteras, molidas en lotes pequeños para cada corte.',
+    f2:'<strong>Sazonado a mano</strong>Cada corte lo prepara nuestro pitmaster. Ningún día es igual.',
+    f3:'<strong>Hasta 15 horas de humo</strong>Nogal y roble, a fuego lento, hasta que la corteza dice que está listo.',
+    story_h2:'Dos sures. Un mismo fuego.',
+    story_p1:'El sur de Estados Unidos le enseñó al mundo la paciencia: cortes enteros sobre nogal y roble, horas de humo, nada apurado. El sur de Sudamérica llevó el fuego a la llanura abierta, donde el gaucho hizo del asado una forma de vida.',
+    story_p2:'GAUCHO Smokehouse une esas dos tradiciones en una misma tabla. Los rubs, el chimichurri y la salsa gaucho vienen de un extremo del continente; los ahumadores y el humo, del otro.',
+    story_p3:'Tierras distintas. El mismo fuego.',
+    cat_h2:'El ahumadero va a donde estés.',
+    cat_p1:'GAUCHO atiende mercados, festivales y eventos privados en todo el Middle Tennessee. Bodas, almuerzos corporativos, reuniones en casa: llevamos el ahumador, el pitmaster y el fuego.',
+    cat_p2:'Cuéntanos la fecha, el número de invitados y la ocasión, y armamos el menú a la medida.',
+    cat_btn:'Escríbenos por Instagram',
+    nash_h2:'Lo que viene: un ahumadero propio en Nashville.',
+    nash_p1:'Nuestro primer local está en camino en Nashville, Tennessee. Mientras abrimos, encuéntranos donde está el humo: mercados, festivales y eventos privados por toda la ciudad.',
+    nash_p2:'<a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Sigue a @gauchosmokehouse</a> para fechas y ubicaciones.',
+    foot_tag:'Barbacoa de fusión sureña. Nashville, Tennessee.',
+    fine:'© 2026 GAUCHO Smokehouse. Todos los derechos reservados.'
+  };
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var EN = [];
+  nodes.forEach(function(n,i){ EN[i] = n.innerHTML; });
+  var btn = document.getElementById('lang-toggle');
+  function apply(lang){
+    nodes.forEach(function(n,i){
+      var k = n.getAttribute('data-i18n');
+      n.innerHTML = (lang === 'es' && ES[k]) ? ES[k] : EN[i];
+    });
+    document.documentElement.lang = lang;
+    btn.textContent = lang === 'es' ? 'EN' : 'ES';
+    btn.setAttribute('aria-label', lang === 'es' ? 'View in English' : 'Ver en español');
+    try { localStorage.setItem('gaucho-lang', lang); } catch(e) {}
+  }
+  var start = 'en';
+  try {
+    var saved = localStorage.getItem('gaucho-lang');
+    if (saved === 'es' || saved === 'en') start = saved;
+    else if ((navigator.language || '').toLowerCase().indexOf('es') === 0) start = 'es';
+  } catch(e) {}
+  if (start === 'es') apply('es');
+  btn.addEventListener('click', function(){
+    apply(document.documentElement.lang === 'es' ? 'en' : 'es');
+  });
+})();
+</script>
 </body>
 </html>
