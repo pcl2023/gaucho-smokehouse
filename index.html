@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GAUCHO Smokehouse</title>
+<title>GAUCHO Smokehouse | Southern fusion barbecue in Nashville, TN</title>
 <meta name="description" content="Southern fusion barbecue in Nashville, Tennessee. American smoke meets the fire of the South American gaucho. Smoked sandwiches, catering and private events.">
 <meta name="theme-color" content="#140f08">
 <meta property="og:type" content="website">
@@ -14,10 +14,16 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/playfair-display-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FoodEstablishment","name":"GAUCHO Smokehouse","url":"https://pcl2023.github.io/gaucho-smokehouse/","image":"https://pcl2023.github.io/gaucho-smokehouse/assets/og.jpg","servesCuisine":["Barbecue","Southern fusion","Smoked sandwiches"],"areaServed":{"@type":"City","name":"Nashville, Tennessee"},"slogan":"The Ultimate Smoked Experience","sameAs":["https://www.instagram.com/gauchosmokehouse"]}
+</script>
 <style>
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/playfair-display-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:500;font-display:swap;src:url(assets/fonts/playfair-display-latin-500-italic.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/source-sans-3-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/source-sans-3-latin-600-normal.woff2) format('woff2')}
 :root{
   --char:#140f08;
   --soot:#1c140b;
@@ -27,6 +33,10 @@
   --smoke:#a99a82;
   --line:rgba(200,150,62,.26);
   --line-soft:rgba(200,150,62,.14);
+  --kraft:#d7c09a;
+  --kraft-deep:#c9ae82;
+  --ink:#2a1d0f;
+  --ink-soft:#5a4428;
   /* type scale, ratio ~1.25 */
   --t-xs:.8125rem;
   --t-sm:.9rem;
@@ -60,8 +70,9 @@ section{padding:var(--sec) 0}
 /* nav */
 nav{position:sticky;top:0;z-index:50;background:rgba(20,15,8,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1080px;margin:0 auto;padding:10px 20px}
-.wordmark{font-family:'Playfair Display',serif;font-weight:600;font-size:1.05rem;letter-spacing:.16em;color:var(--brass);white-space:nowrap}
+.wordmark{display:inline-flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-weight:600;font-size:1.05rem;letter-spacing:.16em;color:var(--brass);white-space:nowrap}
 .wordmark span{color:var(--pale);font-size:.72em;letter-spacing:.28em}
+.wordmark img{width:30px;height:30px;object-fit:cover;border-radius:50%;border:1px solid var(--line)}
 .nav-links{display:flex;align-items:center;gap:20px;font-size:var(--t-sm)}
 .nav-links a{color:var(--pale)}
 .nav-links a:hover{color:var(--brass)}
@@ -87,6 +98,13 @@ h1{font-size:var(--t-h1);line-height:1.12;margin-bottom:16px;letter-spacing:-.00
 h1 em{font-style:normal;color:var(--brass)}
 .lede{color:var(--smoke);max-width:32em;margin-bottom:22px}
 .hero-img{position:relative;overflow:hidden}
+@media (prefers-reduced-motion: no-preference){
+  .hero-copy>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*:nth-child(2){animation-delay:.08s}.hero-copy>*:nth-child(3){animation-delay:.16s}.hero-copy>*:nth-child(4){animation-delay:.24s}
+  .hero-img img{animation:settle 1.4s ease-out both}
+}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes settle{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
 .hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0d0a05 0%,rgba(13,10,5,0) 30%),linear-gradient(0deg,rgba(13,10,5,.5) 0%,rgba(13,10,5,0) 25%)}
 
@@ -95,6 +113,7 @@ h1 em{font-style:normal;color:var(--brass)}
 .menu-head .rule{margin-bottom:0}
 .menu-note{font-family:'Playfair Display',serif;font-style:italic;color:var(--smoke);font-size:var(--t-sm)}
 .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.menu-hint{display:none;margin-top:10px;font-size:var(--t-xs);color:var(--smoke);text-align:right}
 .dish{background:var(--soot);border:1px solid var(--line-soft);display:flex;flex-direction:column}
 .dish img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .dish-body{padding:14px 16px 16px}
@@ -106,13 +125,26 @@ h1 em{font-style:normal;color:var(--brass)}
 .extras li span:last-child{color:var(--smoke);font-style:italic}
 
 /* craft */
-.craft{background:var(--soot);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.craft{background:var(--soot);border-top:1px solid var(--line)}
 .craft-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
 .craft-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .craft-photos img{width:100%;aspect-ratio:3/4;object-fit:cover}
 .craft dl{margin-top:18px}
 .craft dt{color:var(--pale);font-weight:600;font-size:var(--t-sm)}
 .craft dd{color:var(--smoke);font-size:var(--t-sm);margin-bottom:10px}
+
+
+/* reviews on butcher paper */
+.kraft{background:var(--kraft);color:var(--ink);border-top:1px solid var(--kraft-deep);border-bottom:1px solid var(--kraft-deep)}
+.kraft h2{color:var(--ink)}
+.kraft .rule{background:var(--ink)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px}
+.quotes figure{border-top:2px solid var(--ink);padding-top:16px}
+.quotes blockquote{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:1.15rem;line-height:1.4;color:var(--ink)}
+.quotes figcaption{margin-top:12px;font-size:var(--t-sm);color:var(--ink-soft)}
+.quotes figcaption strong{color:var(--ink);font-weight:600}
+.stars{color:#8a5a1c;letter-spacing:.12em;font-size:.85rem;margin-bottom:8px}
+@media(max-width:760px){.quotes{grid-template-columns:1fr;gap:22px}}
 
 /* story */
 .souths{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
@@ -163,8 +195,14 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
   .wordmark{font-size:.95rem;letter-spacing:.1em}
   .wordmark span{letter-spacing:.18em}
 }
+@media(max-width:480px){
+  .wordmark span{display:none}
+}
 @media(max-width:560px){
-  .menu-grid{grid-template-columns:1fr}
+  .menu-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:80%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:0 -20px;padding:0 20px 8px;scroll-padding:0 20px;scrollbar-width:none}
+  .menu-grid::-webkit-scrollbar{display:none}
+  .dish{scroll-snap-align:start}
+  .menu-hint{display:block}
   .foot-grid{flex-direction:column;text-align:center}
   .foot-brand{flex-direction:column}
 }
@@ -174,7 +212,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
 
 <nav aria-label="Main">
   <div class="nav-inner">
-    <a class="wordmark" href="#top">GAUCHO <span>SMOKEHOUSE</span></a>
+    <a class="wordmark" href="#top"><img src="assets/mark.jpg" alt="" width="30" height="30">GAUCHO <span>SMOKEHOUSE</span></a>
     <div class="nav-links">
       <a href="#menu" data-i18n="nav_menu">Menu</a>
       <a href="#story" class="hide-m" data-i18n="nav_story">Our story</a>
@@ -190,7 +228,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
     <div class="hero-copy">
       <p class="tag">The Ultimate Smoked Experience</p>
       <h1 data-i18n="h1">Where the American cowboy meets the <em>South American gaucho.</em></h1>
-      <p class="lede" data-i18n="lede">Southern fusion barbecue. Whole cuts smoked low and slow in the American tradition, finished with the chimichurri and open-fire flavors of the gaucho, served on artisan bread.</p>
+      <p class="lede" data-i18n="lede">Southern fusion barbecue. Whole cuts smoked low and slow, finished with gaucho chimichurri and served on artisan bread.</p>
       <div class="cta-row">
         <a class="btn solid" href="#menu" data-i18n="cta_menu">See the menu</a>
         <a class="btn" href="#catering" data-i18n="cta_event">Plan your event</a>
@@ -237,7 +275,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
         </div>
       </article>
       <article class="dish">
-        <img src="assets/menu-pulledpork.jpg" alt="Slow-smoked pulled pork close up" loading="lazy">
+        <img src="assets/menu-pulledpork.jpg" alt="Smoked pulled pork with barbecue sauce and coleslaw on a pretzel bun" loading="lazy">
         <div class="dish-body">
           <p class="dish-tag" data-i18n="t_pulled">Customer favorite</p>
           <h3>Smoked Pulled Pork</h3>
@@ -265,6 +303,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
         </div>
       </article>
     </div>
+    <p class="menu-hint" data-i18n="swipe">Swipe to see all six</p>
   </div>
 </section>
 
@@ -284,6 +323,28 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
       <img src="assets/craft-rub.jpg" alt="House rub of whole spices" loading="lazy">
       <img src="assets/craft-season.jpg" alt="Pitmaster seasoning a whole cut by hand" loading="lazy">
       <img src="assets/craft-brisket.jpg" alt="Pitmaster holding a whole smoked cut" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="kraft" id="reviews">
+  <div class="wrap">
+    <h2 data-i18n="rev_h2">What our guests say</h2>
+    <div class="rule"></div>
+    <div class="quotes">
+      <figure>
+        <p class="stars" aria-label="5 out of 5 stars">★★★★★</p>
+        <blockquote>“It’s really tasty, big portions for this price, fresh meat and french fries without oil taste.”</blockquote>
+        <figcaption><strong>Tetiana G.</strong> <span data-i18n="rev_src1">Google review</span></figcaption>
+      </figure>
+      <figure>
+        <blockquote>“Everything was absolutely delicious! 100% recommended!”</blockquote>
+        <figcaption><strong>@mativalero</strong> <span data-i18n="rev_src2">on our catering, via Instagram</span></figcaption>
+      </figure>
+      <figure>
+        <blockquote>“Gracias por un sándwich realmente delicioso!”</blockquote>
+        <figcaption><strong>@cartagena_stay_hub</strong> <span data-i18n="rev_src3">via Instagram</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -329,7 +390,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="assets/emblem.jpg" alt="GAUCHO Smokehouse emblem" loading="lazy">
+        <img src="assets/emblem.jpg" alt="GAUCHO Smokehouse emblem">
         <p><strong>GAUCHO Smokehouse</strong><span data-i18n="foot_tag">Southern fusion barbecue. Nashville, Tennessee.</span></p>
       </div>
       <div class="foot-links">
@@ -348,7 +409,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
     nav_menu:'Menú',
     nav_story:'Nuestra historia',
     h1:'Donde el cowboy americano se encuentra con el <em>gaucho sudamericano.</em>',
-    lede:'Barbacoa de fusión sureña. Cortes enteros ahumados a fuego lento al estilo del sur de Estados Unidos, terminados con el chimichurri y el sabor a fuego abierto del gaucho, servidos en pan artesanal.',
+    lede:'Barbacoa de fusión sureña. Cortes enteros ahumados a fuego lento, terminados con chimichurri gaucho y servidos en pan artesanal.',
     cta_menu:'Ver el menú',
     cta_event:'Planea tu evento',
     menu_h2:'Los sándwiches',
@@ -382,6 +443,11 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
     nash_h2:'Lo que viene: un ahumadero propio en Nashville.',
     nash_p1:'Nuestro primer local está en camino. Mientras abrimos, encuéntranos donde está el humo: mercados, festivales y eventos privados por toda la ciudad.',
     nash_p2:'<a href="https://www.instagram.com/gauchosmokehouse" rel="noopener">Sigue a @gauchosmokehouse</a> para fechas y ubicaciones.',
+    swipe:'Desliza para ver los seis',
+    rev_h2:'Lo que dicen nuestros clientes',
+    rev_src1:'reseña en Google',
+    rev_src2:'sobre nuestro catering, en Instagram',
+    rev_src3:'en Instagram',
     foot_tag:'Barbacoa de fusión sureña. Nashville, Tennessee.',
     fine:'© 2026 GAUCHO Smokehouse. Todos los derechos reservados.'
   };
