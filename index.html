@@ -91,7 +91,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(20,15,8,.94);backdrop-filte
 
 /* hero */
 .hero{background:#0d0a05;border-bottom:1px solid var(--line)}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch;max-width:1080px;margin:0 auto;min-height:500px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;max-width:1080px;margin:0 auto;min-height:500px}
 .hero-copy{align-self:center;padding:48px 36px 48px 20px}
 .tag{font-family:'Playfair Display',serif;font-style:italic;color:var(--brass);font-size:1.05rem;margin-bottom:12px}
 h1{font-size:var(--t-h1);line-height:1.12;margin-bottom:16px;letter-spacing:-.005em}
@@ -243,7 +243,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
       </div>
     </div>
     <div class="hero-img">
-      <img src="assets/hero-stage.jpg" alt="Smoked pulled pork sandwich on a pretzel bun, steaming under a warm ember glow" fetchpriority="high">
+      <img src="assets/hero-stage.jpg" alt="Smoked picanha sandwich with chimichurri on artisan ciabatta, steaming under a warm ember glow" fetchpriority="high">
       <canvas class="smoke" aria-hidden="true"></canvas>
     </div>
   </div>
@@ -515,7 +515,7 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
   ' float w2=pow(clamp(1.-abs(fbm(p*1.6+1.7*r-vec2(0.,t*5.5))-.5)*2.,0.,1.),13.);',
   ' float body=smoothstep(.45,.85,f);',
   ' float sway=(fbm(vec2(uv.y*1.8,T*.12))-.5)*.9*clamp(hgt*2.,0.,1.);',
-  ' float spread=HW*.6+max(hgt,0.)*.5;',
+  ' float spread=HW*.55+max(hgt,0.)*.45;',
   ' float px=(uv.x-X)/(spread*1.)+sway/spread*.25;',
   ' float colm=exp(-px*px*1.4);',
   ' float rise=smoothstep(-.06,.05,hgt)*(1.-smoothstep(.82,1.,uv.y));',
@@ -542,8 +542,8 @@ footer{border-top:1px solid var(--line);background:#0d0a05;padding:28px 0 22px}
   var la=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(la);gl.vertexAttribPointer(la,2,gl.FLOAT,false,0,0);
   var uR=gl.getUniformLocation(pr,'R'),uT=gl.getUniformLocation(pr,'T'),uP=gl.getUniformLocation(pr,'P');
   var img=c.parentNode.querySelector('img');
-  // stage image geometry: 1000x1100, sandwich top at 35% from top, centered, half-width 23%
-  var IW=1000, IH=1100, TOP=0.35, HALF=0.23;
+  // stage image geometry: 1100x1100, smoke leaves the meat at ~40% from top, centered, half-width 36%
+  var IW=1100, IH=1100, TOP=0.40, HALF=0.36;
   var scale=Math.min(window.devicePixelRatio||1,1.5)*.6, running=true, t0=performance.now(), src=[.65,.5,.23];
   function size(){
     var r=c.getBoundingClientRect(); c.width=Math.max(1,r.width*scale|0); c.height=Math.max(1,r.height*scale|0); gl.viewport(0,0,c.width,c.height);
